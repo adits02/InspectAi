@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Deficiency Report</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28px;
+            text-align: center;
+        }
+
+        .subtitle {
+            color: #666;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .info-box {
+            background: #e8f4f8;
+            border-left: 4px solid #0099cc;
+            padding: 12px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            font-size: 13px;
+            color: #0099cc;
+        }
+
+        .info-box strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .info-box ul {
+            margin-left: 20px;
+            margin-top: 5px;
+        }
+
+        .info-box li {
+            margin-bottom: 3px;
+        }
+
+        select, input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: border-color 0.3s;
+        }
+
+        select:focus, input[type="text"]:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-generate {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-generate:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-generate:active {
+            transform: translateY(0);
+        }
+
+        .btn-cancel {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .btn-cancel:hover {
+            background: #e0e0e0;
+        }
+
+        .branch-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .branch-option {
+            padding: 10px;
+            text-align: center;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: white;
+        }
+
+        .branch-option:hover {
+            border-color: #667eea;
+            background: #f8f9ff;
+        }
+
+        .branch-option input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        .branch-option input[type="radio"]:checked + label {
+            color: #667eea;
+            font-weight: 700;
+        }
+
+        .loading-info {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 12px;
+            margin-top: 15px;
+            border-radius: 4px;
+            font-size: 13px;
+            color: #856404;
+            display: none;
+        }
+
+        .loading-info.show {
+            display: block;
+        }
+
+        .estimated-time {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            border-left: 4px solid #667eea;
+            font-size: 13px;
+            color: #666;
+        }
+
+        .estimated-time strong {
+            color: #333;
+        }
+
+        .checklist {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .checklist-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .check-icon {
+            width: 20px;
+            height: 20px;
+            min-width: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .check-icon.done {
+            background: #4caf50;
+            color: white;
+        }
+
+        .check-icon.pending {
+            background: #ffc107;
+            color: white;
+        }
+
+        .check-icon.error {
+            background: #f44336;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📋 Generate Deficiency Report</h1>
+        <p class="subtitle">From Uploaded Images</p>
+
+        <div class="info-box">
+            <strong>What is a Deficiency Report?</strong>
+            <ul>
+                <li>Analyzes uploaded classroom & lab images</li>
+                <li>Uses AI (YOLO) to detect equipment and infrastructure</li>
+                <li>Compares actual vs required facilities</li>
+                <li>Provides compliance status and recommendations</li>
+            </ul>
+        </div>
+
+        <div class="checklist">
+            <div class="checklist-item">
+                <div class="check-icon done">✓</div>
+                <span>Images uploaded</span>
+            </div>
+            <div class="checklist-item">
+                <div class="check-icon pending">⚙️</div>
+                <span>Select branch and generate</span>
+            </div>
+            <div class="checklist-item">
+                <div class="check-icon pending">📥</div>
+                <span>Download PDF report</span>
+            </div>
+        </div>
+
+        <form method="POST" id="reportForm">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="branch">Select Branch:</label>
+                <select id="branch" name="branch" required>
+                    <option value="">-- Choose a Branch --</option>
+                    <option value="entc">Electronics & Telecommunication (ENTC)</option>
+                    <option value="cse">Computer Science & Engineering (CSE)</option>
+                    <option value="ec">Electronics & Communication (EC)</option>
+                    <option value="me">Mechanical Engineering (ME)</option>
+                    <option value="civil">Civil Engineering</option>
+                    <option value="electrical">Electrical Engineering</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div class="estimated-time">
+                <strong>⏱️ Processing Time:</strong> Typically 30-60 seconds depending on number of images
+            </div>
+
+            <div class="loading-info" id="loadingInfo">
+                <strong>⏳ Generating report...</strong><br>
+                Please wait while we analyze your images. This may take up to 2 minutes.
+            </div>
+
+            <div class="button-group">
+                <button type="submit" class="btn-generate" id="generateBtn">
+                    Generate Report
+                </button>
+                <button type="button" class="btn-cancel" onclick="window.history.back()">
+                    Cancel
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('reportForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const branch = document.getElementById('branch').value;
+            
+            if (!branch) {
+                alert('Please select a branch');
+                return;
+            }
+            
+            // Show loading message
+            document.getElementById('loadingInfo').classList.add('show');
+            document.getElementById('generateBtn').disabled = true;
+            document.getElementById('generateBtn').textContent = 'Generating...';
+            
+            // Submit form
+            this.submit();
+        });
+    </script>
+</body>
+</html>

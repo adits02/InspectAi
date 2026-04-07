@@ -1,0 +1,175 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="card">
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:1.5rem;">
+            <div>
+                <p class="eyebrow">Inspector Reports</p>
+                <h1 class="section-title">Inspector Report Review</h1>
+                <p class="page-description">Review submitted reports and take action based on the latest inspection status.</p>
+            </div>
+            <a href="{% url 'aictemain' %}" class="btn btn-outline">
+                <i class="fas fa-arrow-left"></i>
+                Back to Dashboard
+            </a>
+        </div>
+
+        {% if requests %}
+            <div class="card-section">
+                <div style="overflow-x:auto;">
+                    <table class="card-table">
+                        <thead>
+                            <tr>
+                                <th>Institution</th>
+                                <th>Inspector</th>
+                                <th>Scheduled Date</th>
+                                <th>Reason</th>
+                                <th>Status</th>
+                                <th>Report</th>
+                                <th>Requested</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for request in requests %}
+                                <tr>
+                                    <td>{{ request.college_name }}</td>
+                                    <td>{{ request.assigned_inspector|default:'Not assigned' }}</td>
+                                    <td>{{ request.scheduled_date|default:'Not scheduled' }}</td>
+                                    <td title="{{ request.request_reason }}">{{ request.request_reason|truncatechars:90 }}</td>
+                                    <td>
+                                        <span class="status-pill"
+                                            style="
+                                                {% if request.status == 'Scheduled' %}background:#e0f2fe;color:#075985;{% endif %}
+                                                {% if request.status == 'In-Process' %}background:#f3e8ff;color:#6d28d9;{% endif %}
+                                                {% if request.status == 'Approved' or request.status == 'Completed Approved' %}background:#dcfce7;color:#166534;{% endif %}
+                                                {% if request.status == 'Failed' or request.status == 'Rejected' %}background:#fee2e2;color:#991b1b;{% endif %}
+                                            ">
+                                            {{ request.status }}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        {% if request.inspector_report_file %}
+                                            <span style="color:#334155;">PDF attached</span>
+                                        {% elif request.inspector_report %}
+                                            <span style="color:#334155;">Text report</span>
+                                        {% else %}
+                                            <span style="color:#94a3b8;">No report</span>
+                                        {% endif %}
+                                    </td>
+                                    <td>{{ request.requested_date|date:'M d, Y H:i' }}</td>
+                                    <td>
+                                        <div style="display:flex; flex-direction:column; gap:0.75rem;">
+                                            {% if request.inspector_report or request.inspector_report_file %}
+                                                <button type="button" class="btn btn-outline" onclick="openReportModal('{{ request.id }}', '{{ request.college_name|escapejs }}', '{{ request.inspector_report|default:''|escapejs }}', '{% url 'download_inspection_report_admin' request.id %}')">
+                                                    <i class="fas fa-eye"></i>
+                                                    View Report
+                                                </button>
+                                            {% endif %}
+
+                                            {% if request.status == 'Scheduled' %}
+                                                <a href="{% url 'receive_inspection_schedule' request.id %}" class="btn btn-primary">
+                                                    <i class="fas fa-check-circle"></i>
+                                                    Req Received
+                                                </a>
+                                                <a href="{% url 'reject_inspection_request' request.id %}" class="btn btn-outline" onclick="return confirm('Reject this scheduled inspection?')">
+                                                    <i class="fas fa-times"></i>
+                                                    Reject Schedule
+                                                </a>
+                                            {% elif request.status == 'In-Process' %}
+                                                <a href="{% url 'approve_inspection_request' request.id %}" class="btn btn-primary" onclick="return confirm('Approve this inspection report?')">
+                                                    <i class="fas fa-check"></i>
+                                                    Approve
+                                                </a>
+                                                <a href="{% url 'complete_inspection' request.id %}?result=failed" class="btn btn-outline" onclick="return confirm('Mark this inspection as failed?')">
+                                                    <i class="fas fa-exclamation-triangle"></i>
+                                                    Fail Inspection
+                                                </a>
+                                            {% elif request.status == 'Approved' %}
+                                                <span style="color:#166534; font-weight:700;">Approved in Inspection</span>
+                                            {% elif request.status == 'Failed' %}
+                                                <span style="color:#991b1b; font-weight:700;">Failed in Inspection</span>
+                                            {% elif request.status == 'Completed Approved' %}
+                                                <span style="color:#166534; font-weight:700;">Completed Approved</span>
+                                            {% elif request.status == 'Rejected' %}
+                                                <span style="color:#991b1b; font-weight:700;">Rejected</span>
+                                            {% else %}
+                                                <span style="color:#64748b;">No actions available</span>
+                                            {% endif %}
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        {% else %}
+            <div class="card-section" style="text-align:center;">
+                <i class="fas fa-inbox" style="font-size:2.5rem; color:#94a3b8; margin-bottom:1rem;"></i>
+                <p style="font-size:1.125rem; font-weight:700; color:#0f172a;">No inspector reports pending review.</p>
+                <p style="color:#64748b; margin-top:0.5rem;">Reports will appear here once inspectors submit their findings.</p>
+            </div>
+        {% endif %}
+
+        <div style="margin-top:1.5rem; text-align:center;">
+            <a href="{% url 'inspection_requests' %}" class="btn btn-outline">
+                <i class="fas fa-list"></i>
+                View All Inspection Requests
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="report-modal" style="position: fixed; inset:0; z-index:999; background: rgba(15,23,42,0.6); display:none; align-items:center; justify-content:center; padding:1.5rem;">
+    <div style="background:#ffffff; border-radius:24px; width:100%; max-width:720px; max-height:90vh; overflow-y:auto; padding:2rem; position:relative; box-shadow:0 30px 80px rgba(15,23,42,0.2);">
+        <button type="button" onclick="closeReportModal()" style="position:absolute; top:1rem; right:1rem; border:none; background:transparent; cursor:pointer; font-size:1.25rem; color:#334155;">
+            <i class="fas fa-times"></i>
+        </button>
+        <h2 style="font-size:1.5rem; margin-bottom:0.75rem; color:#0f172a;">Inspection Report</h2>
+        <p id="modal-institution" style="margin-bottom:1rem; color:#475569; font-weight:600;"></p>
+        <div style="background:#f8fafc; border:1px solid rgba(15,23,42,0.08); border-radius:16px; padding:1.25rem; color:#0f172a; white-space:pre-wrap; min-height:160px; line-height:1.75;">
+            <span id="modal-report-text"></span>
+        </div>
+        <div id="modal-report-link" style="margin-top:1rem; display:none;">
+            <a id="modal-report-download" href="#" target="_blank" style="color:#1d4ed8; font-weight:700;">Download PDF report</a>
+        </div>
+        <div style="margin-top:1rem; text-align:right;">
+            <button type="button" class="btn btn-primary" onclick="closeReportModal()">Close</button>
+        </div>
+    </div>
+</div>
+
+<script>
+function openReportModal(id, collegeName, reportText, reportFile) {
+    document.getElementById('modal-institution').textContent = collegeName;
+    const reportEl = document.getElementById('modal-report-text');
+    const reportLinkContainer = document.getElementById('modal-report-link');
+    const reportLink = document.getElementById('modal-report-download');
+
+    if (reportText) {
+        reportEl.textContent = reportText;
+    } else if (reportFile) {
+        reportEl.textContent = 'A PDF report is available below.';
+    } else {
+        reportEl.textContent = 'No report text is available for this request.';
+    }
+
+    if (reportFile) {
+        reportLinkContainer.style.display = 'block';
+        reportLink.href = reportFile;
+    } else {
+        reportLinkContainer.style.display = 'none';
+        reportLink.href = '#';
+    }
+
+    document.getElementById('report-modal').style.display = 'flex';
+}
+
+function closeReportModal() {
+    document.getElementById('report-modal').style.display = 'none';
+}
+</script>
+{% endblock %}

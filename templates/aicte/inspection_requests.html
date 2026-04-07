@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Inspection Requests</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+</head>
+
+<body class="bg-[#BED7DC]">
+  <div class="container mx-auto px-4 py-8">
+    <div class="flex justify-between items-center mb-8">
+      <h1 class="text-3xl font-bold text-blue-900">Inspection Requests Management</h1>
+      <a href="{% url 'aictemain' %}" class="bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600">
+        <i class="fas fa-arrow-left mr-2"></i>Back to Dashboard
+      </a>
+    </div>
+    
+    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+      <div class="px-6 py-4 bg-blue-600 text-white">
+        <h2 class="text-xl font-semibold">Pending Inspection Requests</h2>
+      </div>
+      
+      <div class="p-6">
+        {% if requests %}
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {% for request in requests %}
+              <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200 hover:shadow-lg transition-shadow">
+                <h3 class="text-lg font-bold text-blue-900 mb-4">{{ request.college_name }}</h3>
+                
+                <div class="space-y-4">
+                  <div>
+                    <label class="block text-gray-700 font-bold mb-2">Institution Name:</label>
+                    <input type="text" value="{{ request.college_name }}" readonly 
+                           class="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-100">
+                  </div>
+                  
+                  <div>
+                    <label class="block text-gray-700 font-bold mb-2">Request Date:</label>
+                    <input type="text" value="{{ request.requested_date|date:'M d, Y H:i' }}" readonly 
+                           class="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-100">
+                  </div>
+                  
+                  <div>
+                    <label class="block text-gray-700 font-bold mb-2">Reason for Inspection Request:</label>
+                    <textarea rows="4" readonly
+                              class="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-100">{{ request.request_reason }}</textarea>
+                  </div>
+                  
+                  <div>
+                    <label class="block text-gray-700 font-bold mb-2">Preferred Inspection Date:</label>
+                    <input type="text" value="{{ request.preferred_date|default:'Not specified' }}" readonly 
+                           class="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-100">
+                  </div>
+                  
+                  <div>
+                    <label class="block text-gray-700 font-bold mb-2">Status:</label>
+                    <span class="px-2 py-1 text-xs font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                      {{ request.status }}
+                    </span>
+                  </div>
+                </div>
+                
+                <div class="flex flex-wrap gap-2 mt-4">
+                  <a href="{% url 'schedule_inspection' request.id %}" 
+                     class="bg-blue-500 text-white px-3 py-2 rounded-md text-sm hover:bg-blue-600 flex-1 text-center">
+                    <i class="fas fa-calendar-plus mr-1"></i> Assign Inspector & Date
+                  </a>
+                  <a href="{% url 'reject_inspection_request' request.id %}" 
+                     class="bg-red-500 text-white px-3 py-2 rounded-md text-sm hover:bg-red-600 flex-1 text-center"
+                     onclick="return confirm('Are you sure you want to reject this request?')">
+                    <i class="fas fa-times mr-1"></i> Reject
+                  </a>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        {% else %}
+          <div class="text-center py-8">
+            <i class="fas fa-inbox text-gray-400 text-4xl mb-4"></i>
+            <p class="text-gray-500 text-lg">No inspection requests found.</p>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</body>
+
+{% endblock %}

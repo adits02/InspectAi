@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Inspection Report</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+</head>
+
+<body class="bg-[#BED7DC]">
+  <div class="container mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold text-center text-blue-900 mb-8">Generate Inspection Report</h1>
+    
+    <div class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
+      <form method="post" action="{% url 'inspection_report' %}">
+        {% csrf_token %}
+        
+        <div class="mb-4">
+          <label for="start_date" class="block text-gray-700 font-bold mb-2">Start Date:</label>
+          <input type="date" id="start_date" name="start_date" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+        
+        <div class="mb-4">
+          <label for="end_date" class="block text-gray-700 font-bold mb-2">End Date:</label>
+          <input type="date" id="end_date" name="end_date" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+        
+        <div class="mb-6">
+          <label for="region" class="block text-gray-700 font-bold mb-2">Region (State):</label>
+          <select id="region" name="region" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <option value="">All Regions</option>
+            {% for state in states %}
+              <option value="{{ state }}">{{ state }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        
+        <button type="submit" class="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <i class="fas fa-download mr-2"></i>Generate PDF Report
+        </button>
+      </form>
+    </div>
+    
+    <div class="text-center mt-8">
+      <a href="{% url 'aictemain' %}" class="text-blue-600 hover:text-blue-800">
+        <i class="fas fa-arrow-left mr-2"></i>Back to Admin Dashboard
+      </a>
+    </div>
+  </div>
+</body>
+
+{% endblock %}

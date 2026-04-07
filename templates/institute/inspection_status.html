@@ -1,0 +1,286 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Inspection Request Status</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+</head>
+
+<body class="bg-[#BED7DC]">
+  <div class="container mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold text-center text-blue-900 mb-8">Inspection Request Status</h1>
+
+    <div class="max-w-4xl mx-auto">
+      <!-- Status Overview -->
+      <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-xl font-semibold text-gray-800">Request Overview</h2>
+          <span class="px-3 py-1 rounded-full text-sm font-medium
+            {% if request.status == 'Requested' %}bg-yellow-100 text-yellow-800{% endif %}
+            {% if request.status == 'Scheduled' %}bg-blue-100 text-blue-800{% endif %}
+            {% if request.status == 'In-Process' %}bg-purple-100 text-purple-800{% endif %}
+            {% if request.status == 'Approved' %}bg-green-100 text-green-800{% endif %}
+            {% if request.status == 'Rejected' %}bg-red-100 text-red-800{% endif %}
+            {% if request.status == 'Completed Approved' %}bg-green-100 text-green-800{% endif %}
+            {% if request.status == 'Failed' %}bg-red-100 text-red-800{% endif %}">
+            {{ request.status }}
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <p class="text-gray-600"><strong>Institution:</strong> {{ college_name }}</p>
+            <p class="text-gray-600"><strong>Requested Date:</strong> {{ request.requested_date|date:"M d, Y" }}</p>
+          </div>
+          <div>
+            {% if request.preferred_date %}
+              <p class="text-gray-600"><strong>Preferred Date:</strong> {{ request.preferred_date }}</p>
+            {% endif %}
+            {% if request.scheduled_date %}
+              <p class="text-gray-600"><strong>Scheduled Date:</strong> {{ request.scheduled_date }}</p>
+            {% endif %}
+            {% if request.assigned_inspector %}
+              <p class="text-gray-600"><strong>Assigned Inspector:</strong> {{ request.assigned_inspector }}</p>
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="mt-4">
+          <p class="text-gray-600"><strong>Reason:</strong></p>
+          <p class="text-gray-800 bg-gray-50 p-3 rounded-md">{{ request.request_reason }}</p>
+        </div>
+
+        {% if request.admin_notes %}
+          <div class="mt-4">
+            <p class="text-gray-600"><strong>Admin Notes:</strong></p>
+            <p class="text-gray-800 bg-blue-50 p-3 rounded-md">{{ request.admin_notes }}</p>
+          </div>
+        {% endif %}
+      </div>
+
+      <!-- Status Timeline -->
+      <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+        <h3 class="text-lg font-semibold text-gray-800 mb-4">Request Timeline</h3>
+        <div class="space-y-4">
+          <div class="flex items-center">
+            <div class="flex-shrink-0 w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+              <i class="fas fa-check text-green-600 text-sm"></i>
+            </div>
+            <div class="ml-4">
+              <p class="text-sm font-medium text-gray-900">Request Submitted</p>
+              <p class="text-sm text-gray-500">{{ request.requested_date|date:"M d, Y at H:i" }}</p>
+            </div>
+          </div>
+
+          {% if request.status == 'Approved' or request.status == 'Scheduled' or request.status == 'In-Process' or request.status == 'Completed Approved' or request.status == 'Failed' %}
+            <div class="flex items-center">
+              <div class="flex-shrink-0 w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                <i class="fas fa-check text-green-600 text-sm"></i>
+              </div>
+              <div class="ml-4">
+                <p class="text-sm font-medium text-gray-900">Request Approved</p>
+                <p class="text-sm text-gray-500">Your inspection request has been approved</p>
+              </div>
+            </div>
+          {% endif %}
+
+          {% if request.status == 'Scheduled' or request.status == 'In-Process' or request.status == 'Completed Approved' or request.status == 'Failed' %}
+            <div class="flex items-center">
+              <div class="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                <i class="fas fa-calendar-check text-blue-600 text-sm"></i>
+              </div>
+              <div class="ml-4">
+                <p class="text-sm font-medium text-gray-900">Inspection Scheduled</p>
+                <p class="text-sm text-gray-500">Scheduled for {{ request.scheduled_date }}</p>
+              </div>
+            </div>
+          {% endif %}
+
+          {% if request.status == 'In-Process' %}
+            <div class="flex items-center">
+              <div class="flex-shrink-0 w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
+                <i class="fas fa-spinner fa-spin text-purple-600 text-sm"></i>
+              </div>
+              <div class="ml-4">
+                <p class="text-sm font-medium text-gray-900">Inspection In Progress</p>
+                <p class="text-sm text-gray-500">Inspection is currently underway</p>
+              </div>
+            </div>
+          {% endif %}
+
+          {% if request.status == 'Completed Approved' %}
+            <div class="flex items-center">
+              <div class="flex-shrink-0 w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                <i class="fas fa-check-circle text-green-600 text-sm"></i>
+              </div>
+              <div class="ml-4">
+                <p class="text-sm font-medium text-gray-900">Inspection Completed & Approved</p>
+                <p class="text-sm text-gray-500">Inspection has been completed successfully and approved</p>
+              </div>
+            </div>
+          {% endif %}
+
+          {% if request.status == 'Failed' %}
+            <div class="flex items-center">
+              <div class="flex-shrink-0 w-8 h-8 bg-red-100 rounded-full flex items-center justify-center">
+                <i class="fas fa-exclamation-triangle text-red-600 text-sm"></i>
+              </div>
+              <div class="ml-4">
+                <p class="text-sm font-medium text-gray-900">Inspection Failed</p>
+                <p class="text-sm text-gray-500">Inspection has been completed but failed</p>
+              </div>
+            </div>
+          {% endif %}
+
+          {% if request.status == 'Rejected' %}
+            <div class="flex items-center">
+              <div class="flex-shrink-0 w-8 h-8 bg-red-100 rounded-full flex items-center justify-center">
+                <i class="fas fa-times text-red-600 text-sm"></i>
+              </div>
+              <div class="ml-4">
+                <p class="text-sm font-medium text-gray-900">Request Rejected</p>
+                <p class="text-sm text-gray-500">Please check admin notes for details</p>
+              </div>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <h3 class="text-lg font-semibold text-gray-800 mb-4">Actions</h3>
+        <div class="flex flex-wrap gap-4">
+          {% if request.status == 'Requested' %}
+            <div class="flex-1 bg-yellow-50 border border-yellow-200 rounded-md p-4">
+              <div class="flex items-center">
+                <i class="fas fa-clock text-yellow-600 mr-3"></i>
+                <div>
+                  <p class="font-medium text-yellow-800">Request Under Review</p>
+                  <p class="text-sm text-yellow-600">Your request is being reviewed by AICTE administrators</p>
+                </div>
+              </div>
+            </div>
+          {% endif %}
+
+          {% if request.status == 'Approved' %}
+            <div class="flex-1 bg-green-50 border border-green-200 rounded-md p-4">
+              <div class="flex items-center">
+                <i class="fas fa-check text-green-600 mr-3"></i>
+                <div>
+                  <p class="font-medium text-green-800">Request Approved</p>
+                  <p class="text-sm text-green-600">Your inspection request has been approved. Waiting for scheduling.</p>
+                </div>
+              </div>
+            </div>
+          {% endif %}
+
+          {% if request.status == 'Scheduled' %}
+            <div class="flex-1 bg-blue-50 border border-blue-200 rounded-md p-4">
+              <div class="flex items-center">
+                <i class="fas fa-calendar-check text-blue-600 mr-3"></i>
+                <div>
+                  <p class="font-medium text-blue-800">Inspection Scheduled</p>
+                  <p class="text-sm text-blue-600">Prepare for inspection on {{ request.scheduled_date }}</p>
+                </div>
+              </div>
+            </div>
+          {% endif %}
+
+          {% if request.status == 'In-Process' %}
+            <div class="flex-1 bg-purple-50 border border-purple-200 rounded-md p-4">
+              <div class="flex items-center">
+                <i class="fas fa-spinner fa-spin text-purple-600 mr-3"></i>
+                <div>
+                  <p class="font-medium text-purple-800">Inspection In Progress</p>
+                  <p class="text-sm text-purple-600">Inspection is currently underway</p>
+                </div>
+              </div>
+            </div>
+          {% endif %}
+
+          {% if request.status == 'Completed Approved' %}
+            <div class="flex-1 bg-green-50 border border-green-200 rounded-md p-4">
+              <div class="flex items-center">
+                <i class="fas fa-trophy text-green-600 mr-3"></i>
+                <div>
+                  <p class="font-medium text-green-800">Inspection Completed & Approved</p>
+                  <p class="text-sm text-green-600">Congratulations! Your institution has passed the inspection.</p>
+                </div>
+              </div>
+            </div>
+          {% endif %}
+
+          {% if request.status == 'Failed' %}
+            <div class="flex-1 bg-red-50 border border-red-200 rounded-md p-4">
+              <div class="flex items-center">
+                <i class="fas fa-exclamation-triangle text-red-600 mr-3"></i>
+                <div>
+                  <p class="font-medium text-red-800">Inspection Failed</p>
+                  <p class="text-sm text-red-600">Your institution did not pass the inspection. Please check compliance requirements.</p>
+                </div>
+              </div>
+            </div>
+          {% endif %}
+
+          {% if request.status == 'Rejected' %}
+            <button onclick="showNewRequestForm()" class="bg-red-500 text-white font-bold py-2 px-4 rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500">
+              <i class="fas fa-redo mr-2"></i>Submit New Request
+            </button>
+          {% endif %}
+
+          <a href="{% url 'index' %}" class="bg-gray-500 text-white font-bold py-2 px-4 rounded-md hover:bg-gray-600">
+            <i class="fas fa-arrow-left mr-2"></i>Back to Dashboard
+          </a>
+        </div>
+      </div>
+
+      <!-- Hidden New Request Form (for rejected requests) -->
+      {% if request.status == 'Rejected' %}
+        <div id="newRequestForm" class="bg-white p-6 rounded-lg shadow-md mt-6 hidden">
+          <h3 class="text-lg font-semibold text-gray-800 mb-4">Submit New Inspection Request</h3>
+          <form method="post" action="{% url 'request_inspection' %}">
+            {% csrf_token %}
+
+            <div class="mb-4">
+              <label for="request_reason" class="block text-gray-700 font-bold mb-2">Reason for New Inspection Request:</label>
+              <textarea id="request_reason" name="request_reason" rows="4" required
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="Please provide detailed reason for requesting inspection..."></textarea>
+            </div>
+
+            <div class="mb-4">
+              <label for="preferred_date" class="block text-gray-700 font-bold mb-2">Preferred Inspection Date (Optional):</label>
+              <input type="date" id="preferred_date" name="preferred_date"
+                     class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+
+            <div class="flex space-x-4">
+              <button type="submit" class="flex-1 bg-blue-500 text-white font-bold py-2 px-4 rounded-md hover:bg-blue-600">
+                <i class="fas fa-paper-plane mr-2"></i>Submit New Request
+              </button>
+              <button type="button" onclick="hideNewRequestForm()" class="flex-1 bg-gray-500 text-white font-bold py-2 px-4 rounded-md hover:bg-gray-600">
+                <i class="fas fa-times mr-2"></i>Cancel
+              </button>
+            </div>
+          </form>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <script>
+    function showNewRequestForm() {
+      document.getElementById('newRequestForm').classList.remove('hidden');
+    }
+
+    function hideNewRequestForm() {
+      document.getElementById('newRequestForm').classList.add('hidden');
+    }
+  </script>
+</body>
+
+{% endblock %}

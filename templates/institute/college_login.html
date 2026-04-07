@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="aicte-page">
+    <div class="page-header">
+        <span class="eyebrow">InspectAi</span>
+        <h1>College Login</h1>
+        <p class="page-description">Sign in to manage college inspection data and review assessment dashboards.</p>
+    </div>
+
+    <div class="form-card">
+        <h1 class="section-title">College Access</h1>
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+            <div class="alert {{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <form action="{% url 'college_login_check' %}" method="POST" class="form-grid">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="college-name">College Name</label>
+                <input type="text" id="college-name" name="college_name" required placeholder="Enter college name">
+            </div>
+            <div class="form-group">
+                <label for="college-code">College Code</label>
+                <input type="text" id="college-code" name="college_code" required placeholder="Enter college code">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required placeholder="Enter password">
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+            <div class="form-group">
+                <p>Don’t have an account? <a href="{% url 'signup' %}">Sign up</a></p>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,386 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Upload Mandatory Disclosure{% endblock %}
+{% block content %}
+<div class="aicte-page">
+    <div class="page-header">
+        <span class="eyebrow">InspectAi</span>
+        <h1>Upload Mandatory Disclosure</h1>
+        <p class="page-description">Submit the mandatory disclosure PDF and optional supporting documents for inspection review.</p>
+    </div>
+
+    <div class="form-card">
+        <form enctype="multipart/form-data" method="POST" action="{% url 'upload_mandatory_check' %}" class="form-grid">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="college_intake">College Intake</label>
+                <input type="text" id="college_intake" name="college_intake" required placeholder="Enter college intake">
+            </div>
+
+            <div class="form-group">
+                <label>Mandatory Disclosure PDF</label>
+                <div class="dropzone-area" id="dropzone-area">
+                    <div class="file-upload-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 3v4a1 1 0 0 0 1 1h4" />
+                            <path d="M17 21h-10a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h7l5 5v10a2 2 0 0 1-2 2z" />
+                            <path d="M12 11v6" />
+                            <path d="M9 14l3-3 3 3" />
+                        </svg>
+                    </div>
+                    <p class="dropzone-text">Click to upload or drag and drop the mandatory disclosure PDF.</p>
+                    {% if existing_mandatory %}
+                    <p class="status-badge status-success">✓ Already uploaded: {{ existing_mandatory.name }}</p>
+                    <p class="status-note">Select a new file to replace the existing upload.</p>
+                    {% endif %}
+                    <input type="file" {% if not existing_mandatory %}required{% endif %} id="mandatory_doc" name="mandatory_doc" accept=".pdf">
+                    <p class="message">No Files Selected</p>
+                </div>
+            </div>
+
+            <div class="form-card card-section">
+                <h2 class="section-title">Optional Supporting Documents</h2>
+                <p class="page-description">Upload additional PDF documents to improve the completeness review.</p>
+
+                <div class="form-group">
+                    <label for="faculty_qualification">Faculty Qualification Document</label>
+                    {% if existing_supporting.faculty_qualification %}
+                    <p class="status-badge status-success">✓ Already uploaded</p>
+                    {% endif %}
+                    <input type="file" id="faculty_qualification" name="faculty_qualification" accept=".pdf">
+                </div>
+
+                <div class="form-group">
+                    <label for="faculty_experience">Faculty Experience Document</label>
+                    {% if existing_supporting.faculty_experience %}
+                    <p class="status-badge status-success">✓ Already uploaded</p>
+                    {% endif %}
+                    <input type="file" id="faculty_experience" name="faculty_experience" accept=".pdf">
+                </div>
+
+                <div class="form-group">
+                    <label for="student_admission">Student Admission / Strength Document</label>
+                    {% if existing_supporting.student_admission %}
+                    <p class="status-badge status-success">✓ Already uploaded</p>
+                    {% endif %}
+                    <input type="file" id="student_admission" name="student_admission" accept=".pdf">
+                </div>
+
+                <div class="form-group">
+                    <label for="approval_affiliation">Approval / Affiliation Letter</label>
+                    {% if existing_supporting.approval_affiliation %}
+                    <p class="status-badge status-success">✓ Already uploaded</p>
+                    {% endif %}
+                    <input type="file" id="approval_affiliation" name="approval_affiliation" accept=".pdf">
+                </div>
+
+                <div class="form-group">
+                    <label for="fire_noc">Fire NOC / Safety Certificate</label>
+                    {% if existing_supporting.fire_noc %}
+                    <p class="status-badge status-success">✓ Already uploaded</p>
+                    {% endif %}
+                    <input type="file" id="fire_noc" name="fire_noc" accept=".pdf">
+                </div>
+            </div>
+
+            <div class="dropzone-actions">
+                <button type="reset" class="btn btn-outline">Clear</button>
+                <button id="submit-button" type="submit" class="btn btn-primary">Save Disclosure</button>
+            </div>
+        </form>
+    </div>
+
+    {% if document_completeness %}
+    <div class="card-section" style="margin-top: 1.5rem;">
+        <h2 class="section-title">Document Completeness</h2>
+        <p class="page-description">Review the current upload status for mandatory fields.</p>
+        <p><strong>Completeness:</strong> {{ document_completeness.completeness_percentage }}% ({{ document_completeness.present_count }}/{{ document_completeness.required_count }})</p>
+        <ul class="status-list">
+            {% for doc in document_completeness.documents %}
+            <li>
+                <strong>{{ doc.document_name }}:</strong>
+                <span class="status-label {% if doc.status == 'Present' %}status-success{% else %}status-error{% endif %}">{{ doc.status }}</span>
+                <span class="status-note">({{ doc.severity }})</span>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+    {% if faculty_qualification_experience %}
+    <div class="card-section" style="margin-top: 1.5rem;">
+        <h2 class="section-title">Faculty Qualification & Experience Validation</h2>
+        <p class="page-description">Extracted faculty data is validated against the uploaded disclosure.</p>
+        {% for faculty in faculty_qualification_experience %}
+        <div class="detail-card">
+            <div class="detail-card-header">
+                <h3>{{ faculty.designation }}</h3>
+                <span class="status-label {% if faculty.qualification_status == 'Available' and faculty.experience_status == 'Available' %}status-success{% else %}status-warning{% endif %}">{{ faculty.qualification_status }} / {{ faculty.experience_status }}</span>
+            </div>
+            <div class="detail-grid">
+                <div><strong>Total Faculty:</strong> {{ faculty.total }}</div>
+                <div><strong>Qualification Valid:</strong> {{ faculty.qualification_valid }}</div>
+                <div><strong>Qualification Invalid:</strong> {{ faculty.qualification_invalid }}</div>
+                <div><strong>Experience Valid:</strong> {{ faculty.experience_valid }}</div>
+                <div><strong>Experience Invalid:</strong> {{ faculty.experience_invalid }}</strong></div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if student_faculty_ratio %}
+    <div class="card-section" style="margin-top: 1.5rem;">
+        <h2 class="section-title">Student-Faculty Ratio Analysis</h2>
+        <p class="page-description">Check the approved intake ratio against faculty strength.</p>
+        <div class="detail-grid detail-grid-3">
+            <div><strong>Student Count:</strong> {{ student_faculty_ratio.student_count }}</div>
+            <div><strong>Total Faculty:</strong> {{ student_faculty_ratio.total_faculty }}</div>
+            <div><strong>Ratio:</strong> {{ student_faculty_ratio.ratio }}</div>
+            <div><strong>Max Allowed:</strong> {{ student_faculty_ratio.required_max_ratio }}</div>
+            <div class="status-card {% if student_faculty_ratio.status == 'Compliant' %}status-compliant{% elif student_faculty_ratio.status == 'Warning' %}status-warning{% elif student_faculty_ratio.status == 'Non-Compliant' %}status-non-compliant{% else %}status-muted{% endif %}"><strong>Status:</strong> {{ student_faculty_ratio.status }}</div>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if approval_certificate_validity %}
+    <div class="card-section" style="margin-top: 1.5rem;">
+        <h2 class="section-title">Approval & Certificate Validity Check</h2>
+        <p class="page-description">Expiry status for approval and safety certificates.</p>
+        <div class="status-grid">
+            {% for doc in approval_certificate_validity %}
+            <div class="status-card">
+                <div>
+                    <h3>{{ doc.document_type }}</h3>
+                    <p class="status-note">{% if doc.expiry_date != 'Not Available' and doc.expiry_date != 'Date Not Found' %}Expires: {{ doc.expiry_date }}{% else %}{{ doc.expiry_date }}{% endif %}</p>
+                </div>
+                <span class="status-label {% if doc.status == 'Valid' %}status-success{% elif doc.status == 'Expiring Soon' %}status-warning{% elif doc.status == 'Expired' %}status-error{% else %}status-muted{% endif %}">{{ doc.status }}</span>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="status-legend">
+            <span class="status-success">Valid</span>
+            <span class="status-warning">Expiring Soon (≤90 days)</span>
+            <span class="status-error">Expired</span>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+<style>
+.dropzone-area {
+    border: 1px dashed rgba(30, 58, 138, 0.4);
+    background: rgba(30, 58, 138, 0.04);
+    border-radius: 20px;
+    padding: 2rem;
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.dropzone-area:hover {
+    border-color: rgba(30, 58, 138, 0.7);
+    background: rgba(30, 58, 138, 0.08);
+}
+
+.dropzone-area input[type="file"] {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.file-upload-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    border-radius: 18px;
+    background: rgba(30, 58, 138, 0.12);
+    margin: 0 auto 1rem;
+}
+
+.dropzone-text,
+.status-note {
+    color: var(--aicte-muted);
+    margin: 0.5rem 0;
+}
+
+.message {
+    margin-top: 1rem;
+    color: var(--aicte-text);
+    font-weight: 600;
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.95rem;
+    margin: 0.5rem 0 0;
+}
+
+.status-success {
+    background: rgba(34, 197, 94, 0.12);
+    color: #166534;
+}
+
+.status-warning {
+    background: rgba(251, 191, 36, 0.12);
+    color: #92400e;
+}
+
+.status-error {
+    background: rgba(220, 38, 38, 0.12);
+    color: #7f1d1d;
+}
+
+.status-muted {
+    background: rgba(148, 163, 184, 0.12);
+    color: #334155;
+}
+
+.status-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0 0;
+}
+
+.status-list li {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.9rem 1rem;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.detail-card {
+    background: var(--aicte-surface);
+    border: 1px solid var(--aicte-border);
+    border-radius: 20px;
+    padding: 1.25rem;
+    margin-top: 1rem;
+}
+
+.detail-card-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.detail-card-header h3 {
+    margin: 0;
+}
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+}
+
+.status-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.detail-grid-3 {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.status-card {
+    background: var(--aicte-surface);
+    border: 1px solid var(--aicte-border);
+    border-radius: 20px;
+    padding: 1rem;
+}
+
+.status-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.status-legend span {
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    font-size: 0.95rem;
+}
+
+.status-card.status-compliant {
+    background: rgba(34, 197, 94, 0.08);
+    border-color: rgba(34, 197, 94, 0.24);
+}
+
+.status-card.status-warning {
+    background: rgba(251, 191, 36, 0.08);
+    border-color: rgba(251, 191, 36, 0.24);
+}
+
+.status-card.status-non-compliant {
+    background: rgba(220, 38, 38, 0.08);
+    border-color: rgba(220, 38, 38, 0.24);
+}
+
+@media (max-width: 768px) {
+    .detail-grid,
+    .status-list li,
+    .status-grid {
+        display: grid;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const fileInput = document.getElementById('mandatory_doc');
+    const messageParagraph = document.querySelector('.message');
+    const dropzoneArea = document.getElementById('dropzone-area');
+
+    if (fileInput) {
+        fileInput.addEventListener('change', function() {
+            if (fileInput.files.length > 0) {
+                messageParagraph.textContent = `Selected file: ${fileInput.files[0].name}`;
+            } else {
+                messageParagraph.textContent = 'No Files Selected';
+            }
+        });
+    }
+
+    if (dropzoneArea) {
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropzoneArea.addEventListener(eventName, function(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                dropzoneArea.classList.add('dropzone--over');
+            });
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropzoneArea.addEventListener(eventName, function(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                dropzoneArea.classList.remove('dropzone--over');
+            });
+        });
+
+        dropzoneArea.addEventListener('drop', function(event) {
+            const files = event.dataTransfer.files;
+            if (files.length > 0) {
+                fileInput.files = files;
+                const changeEvent = new Event('change');
+                fileInput.dispatchEvent(changeEvent);
+            }
+        });
+    }
+});
+</script>
+{% endblock %}

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Certificate Validation</title>
+    <link rel="stylesheet" href="/static/style.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Certificate Validation</h1>
+      <form id="single-form" action="/api/validate" method="post" enctype="multipart/form-data">
+        <h3>Single Certificate</h3>
+        <label>Certificate PDF:</label><input type="file" name="pdf" accept="application/pdf" required><br>
+        <label>Format PDF (optional):</label><input type="file" name="format_pdf" accept="application/pdf"><br>
+        <label>Regulatory (AICTE/NAAC):</label><input type="text" name="regulatory" placeholder="AICTE"><br>
+        <label>Format threshold:</label><input type="number" name="format_threshold" value="70" min="0" max="100"><br>
+        <label>Regulatory threshold:</label><input type="number" name="regulatory_threshold" value="80" min="0" max="100"><br>
+        <button type="submit">Validate</button>
+      </form>
+
+      <hr>
+      <form id="dir-form" action="/api/validate-required" method="post" enctype="multipart/form-data">
+        <h3>Validate Required Certificates (upload ZIP)</h3>
+        <label>Zip file of PDFs:</label><input type="file" name="zipfile" accept=".zip" required><br>
+        <label>Format threshold:</label><input type="number" name="format_threshold" value="70" min="0" max="100"><br>
+        <label>Regulatory threshold:</label><input type="number" name="regulatory_threshold" value="80" min="0" max="100"><br>
+        <button type="submit">Validate Directory</button>
+      </form>
+
+      <div id="result"></div>
+    </div>
+  </body>
+</html>

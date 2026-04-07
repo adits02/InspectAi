@@ -1,0 +1,468 @@
+2026-01-30 09:20:45,439 - INFO: C:\Users\ACER\Downloads\Nirikshan-SahAI-main\major\inspector\views.py changed, reloading.
+2026-01-30 09:28:24,065 - INFO: Verifier results for 6975f6337d3c3e7938ae00b7: {'text_extraction': True, 'certificate_type': 'Academic Certificate', 'format_match': False, 'format_details': {'overall_similarity': 49.0, 'element_matches': {'name': 25, 'degree': 33, 'major': 40, 'university': 100, 'graduation date': 47}}} (duration=4.65s)
+2026-01-30 09:28:24,169 - INFO: Updated certificate 6975f6337d3c3e7938ae00b7 verified=Rejected score=49.0
+2026-01-30 09:28:24,173 - INFO: Removed temp file: C:\Users\ACER\AppData\Local\Temp\tmpybrzg367.pdf
+2026-01-30 09:28:24,174 - INFO: verify_certificate END id=6975f6337d3c3e7938ae00b7
+2026-01-30 09:42:15,968 - INFO: verify_certificate START id=6975f6347d3c3e7938ae00ba user=inspector1
+2026-01-30 09:42:16,605 - INFO: Saved temp file C:\Users\ACER\AppData\Local\Temp\tmp3lrr7pm2.pdf (size=183760)
+2026-01-30 09:42:16,606 - INFO: Running CertificateVerifier.process_certificate for C:\Users\ACER\AppData\Local\Temp\tmp3lrr7pm2.pdf
+2026-01-30 09:42:16,916 - INFO: Verifier results for 6975f6347d3c3e7938ae00ba: {'text_extraction': True, 'certificate_type': 'Professional Certificate', 'format_match': False, 'format_details': {'overall_similarity': 38.5, 'element_matches': {'name': 25, 'certification': 46, 'issuing body': 33, 'date': 50}}} (duration=0.31s)
+2026-01-30 09:42:17,034 - INFO: Updated certificate 6975f6347d3c3e7938ae00ba verified=Rejected score=38.5
+2026-01-30 09:42:17,035 - INFO: Removed temp file: C:\Users\ACER\AppData\Local\Temp\tmp3lrr7pm2.pdf
+2026-01-30 09:42:17,036 - INFO: verify_certificate END id=6975f6347d3c3e7938ae00ba
+2026-01-30 09:42:21,126 - INFO: verify_certificate START id=6975f6347d3c3e7938ae00be user=inspector1
+2026-01-30 09:42:21,844 - INFO: Saved temp file C:\Users\ACER\AppData\Local\Temp\tmp10a83gec.pdf (size=303515)
+2026-01-30 09:42:21,846 - INFO: Running CertificateVerifier.process_certificate for C:\Users\ACER\AppData\Local\Temp\tmp10a83gec.pdf
+2026-01-30 09:42:21,955 - INFO: Verifier results for 6975f6347d3c3e7938ae00be: {'text_extraction': True, 'certificate_type': 'Academic Certificate', 'format_match': False, 'format_details': {'overall_similarity': 37.0, 'element_matches': {'name': 25, 'degree': 33, 'major': 40, 'university': 40, 'graduation date': 47}}} (duration=0.11s)
+2026-01-30 09:42:22,042 - INFO: Updated certificate 6975f6347d3c3e7938ae00be verified=Rejected score=37.0
+2026-01-30 09:42:22,044 - INFO: Removed temp file: C:\Users\ACER\AppData\Local\Temp\tmp10a83gec.pdf
+2026-01-30 09:42:22,050 - INFO: verify_certificate END id=6975f6347d3c3e7938ae00be
+2026-01-30 09:42:25,928 - INFO: verify_certificate START id=6975f6357d3c3e7938ae00c1 user=inspector1
+2026-01-30 09:42:26,563 - INFO: Saved temp file C:\Users\ACER\AppData\Local\Temp\tmpysn6vbij.pdf (size=192272)
+2026-01-30 09:42:26,564 - INFO: Running CertificateVerifier.process_certificate for C:\Users\ACER\AppData\Local\Temp\tmpysn6vbij.pdf
+2026-01-30 09:42:26,807 - INFO: Verifier results for 6975f6357d3c3e7938ae00c1: {'text_extraction': True, 'certificate_type': 'Academic Certificate', 'format_match': False, 'format_details': {'overall_similarity': 52.4, 'element_matches': {'name': 25, 'degree': 50, 'major': 40, 'university': 100, 'graduation date': 47}}} (duration=0.24s)
+2026-01-30 09:42:26,961 - INFO: Updated certificate 6975f6357d3c3e7938ae00c1 verified=Rejected score=52.4
+2026-01-30 09:42:26,962 - INFO: Removed temp file: C:\Users\ACER\AppData\Local\Temp\tmpysn6vbij.pdf
+2026-01-30 09:42:26,962 - INFO: verify_certificate END id=6975f6357d3c3e7938ae00c1
+2026-01-30 09:42:31,121 - INFO: verify_certificate START id=6975f6357d3c3e7938ae00c4 user=inspector1
+2026-01-30 09:42:31,884 - INFO: Saved temp file C:\Users\ACER\AppData\Local\Temp\tmpiz51pypp.pdf (size=183760)
+2026-01-30 09:42:31,884 - INFO: Running CertificateVerifier.process_certificate for C:\Users\ACER\AppData\Local\Temp\tmpiz51pypp.pdf
+2026-01-30 09:42:32,104 - INFO: Verifier results for 6975f6357d3c3e7938ae00c4: {'text_extraction': True, 'certificate_type': 'Professional Certificate', 'format_match': False, 'format_details': {'overall_similarity': 38.5, 'element_matches': {'name': 25, 'certification': 46, 'issuing body': 33, 'date': 50}}} (duration=0.22s)
+2026-01-30 09:42:32,184 - INFO: Updated certificate 6975f6357d3c3e7938ae00c4 verified=Rejected score=38.5
+2026-01-30 09:42:32,186 - INFO: Removed temp file: C:\Users\ACER\AppData\Local\Temp\tmpiz51pypp.pdf
+2026-01-30 09:42:32,187 - INFO: verify_certificate END id=6975f6357d3c3e7938ae00c4
+2026-01-30 09:42:35,805 - INFO: verify_certificate START id=6975f6367d3c3e7938ae00c7 user=inspector1
+2026-01-30 09:42:36,408 - INFO: Saved temp file C:\Users\ACER\AppData\Local\Temp\tmpeeozenrx.pdf (size=183760)
+2026-01-30 09:42:36,410 - INFO: Running CertificateVerifier.process_certificate for C:\Users\ACER\AppData\Local\Temp\tmpeeozenrx.pdf
+2026-01-30 09:42:36,648 - INFO: Verifier results for 6975f6367d3c3e7938ae00c7: {'text_extraction': True, 'certificate_type': 'Professional Certificate', 'format_match': False, 'format_details': {'overall_similarity': 38.5, 'element_matches': {'name': 25, 'certification': 46, 'issuing body': 33, 'date': 50}}} (duration=0.24s)
+2026-01-30 09:42:36,737 - INFO: Updated certificate 6975f6367d3c3e7938ae00c7 verified=Rejected score=38.5
+2026-01-30 09:42:36,739 - INFO: Removed temp file: C:\Users\ACER\AppData\Local\Temp\tmpeeozenrx.pdf
+2026-01-30 09:42:36,739 - INFO: verify_certificate END id=6975f6367d3c3e7938ae00c7
+2026-01-30 09:42:40,021 - INFO: verify_certificate START id=6975f6377d3c3e7938ae00cd user=inspector1
+2026-01-30 09:42:40,746 - INFO: Saved temp file C:\Users\ACER\AppData\Local\Temp\tmpwa1ok_vh.pdf (size=183760)
+2026-01-30 09:42:40,749 - INFO: Running CertificateVerifier.process_certificate for C:\Users\ACER\AppData\Local\Temp\tmpwa1ok_vh.pdf
+2026-01-30 09:42:41,020 - INFO: Verifier results for 6975f6377d3c3e7938ae00cd: {'text_extraction': True, 'certificate_type': 'Professional Certificate', 'format_match': False, 'format_details': {'overall_similarity': 38.5, 'element_matches': {'name': 25, 'certification': 46, 'issuing body': 33, 'date': 50}}} (duration=0.27s)
+2026-01-30 09:42:41,151 - INFO: Updated certificate 6975f6377d3c3e7938ae00cd verified=Rejected score=38.5
+2026-01-30 09:42:41,154 - INFO: Removed temp file: C:\Users\ACER\AppData\Local\Temp\tmpwa1ok_vh.pdf
+2026-01-30 09:42:41,155 - INFO: verify_certificate END id=6975f6377d3c3e7938ae00cd
+2026-01-30 09:42:44,438 - INFO: verify_certificate START id=6975f6377d3c3e7938ae00d0 user=inspector1
+2026-01-30 09:42:44,974 - INFO: Saved temp file C:\Users\ACER\AppData\Local\Temp\tmpgmydqwel.pdf (size=183760)
+2026-01-30 09:42:44,975 - INFO: Running CertificateVerifier.process_certificate for C:\Users\ACER\AppData\Local\Temp\tmpgmydqwel.pdf
+2026-01-30 09:42:45,348 - INFO: Verifier results for 6975f6377d3c3e7938ae00d0: {'text_extraction': True, 'certificate_type': 'Professional Certificate', 'format_match': False, 'format_details': {'overall_similarity': 38.5, 'element_matches': {'name': 25, 'certification': 46, 'issuing body': 33, 'date': 50}}} (duration=0.37s)
+2026-01-30 09:42:45,456 - INFO: Updated certificate 6975f6377d3c3e7938ae00d0 verified=Rejected score=38.5
+2026-01-30 09:42:45,457 - INFO: Removed temp file: C:\Users\ACER\AppData\Local\Temp\tmpgmydqwel.pdf
+2026-01-30 09:42:45,458 - INFO: verify_certificate END id=6975f6377d3c3e7938ae00d0
+2026-01-30 09:42:48,266 - INFO: verify_certificate START id=6975f6367d3c3e7938ae00ca user=inspector1
+2026-01-30 09:42:48,775 - INFO: Saved temp file C:\Users\ACER\AppData\Local\Temp\tmpbernhu90.pdf (size=200069)
+2026-01-30 09:42:48,776 - INFO: Running CertificateVerifier.process_certificate for C:\Users\ACER\AppData\Local\Temp\tmpbernhu90.pdf
+2026-01-30 09:42:49,126 - INFO: Verifier results for 6975f6367d3c3e7938ae00ca: {'text_extraction': True, 'certificate_type': 'Academic Certificate', 'format_match': False, 'format_details': {'overall_similarity': 49.0, 'element_matches': {'name': 25, 'degree': 33, 'major': 40, 'university': 100, 'graduation date': 47}}} (duration=0.35s)
+2026-01-30 09:42:49,214 - INFO: Updated certificate 6975f6367d3c3e7938ae00ca verified=Rejected score=49.0
+2026-01-30 09:42:49,215 - INFO: Removed temp file: C:\Users\ACER\AppData\Local\Temp\tmpbernhu90.pdf
+2026-01-30 09:42:49,216 - INFO: verify_certificate END id=6975f6367d3c3e7938ae00ca
+2026-01-30 09:43:48,372 - INFO: verify_certificate START id=6975f63b7d3c3e7938ae00eb user=inspector1
+2026-01-30 09:43:52,705 - INFO: Saved temp file C:\Users\ACER\AppData\Local\Temp\tmpixv_anu8.pdf (size=6374009)
+2026-01-30 09:43:52,706 - INFO: Running CertificateVerifier.process_certificate for C:\Users\ACER\AppData\Local\Temp\tmpixv_anu8.pdf
+2026-01-30 11:45:38,497 - INFO: Verifier results for 6975f6417d3c3e7938ae0110: {'text_extraction': True, 'certificate_type': 'Academic Certificate', 'format_match': False, 'format_details': {'overall_similarity': 37.0, 'element_matches': {'name': 25, 'degree': 33, 'major': 40, 'university': 40, 'graduation date': 47}}} (duration=32.92s)
+2026-01-30 11:45:38,603 - INFO: Updated certificate 6975f6417d3c3e7938ae0110 verified=Rejected score=37.0
+2026-01-30 11:45:38,604 - INFO: Removed temp file: C:\Users\ACER\AppData\Local\Temp\tmpl5vdluxn.pdf
+2026-01-30 11:45:38,605 - INFO: verify_certificate END id=6975f6417d3c3e7938ae0110
+2026-01-30 11:45:39,176 - INFO: Extracted format from PDF: Expected Format for Anti-Ragging Certificate
+Name, Enrollment No., Course, Institute, Date, Declaration
+2026-01-30 11:45:39,756 - INFO: Extracted format from PDF: Expected Format for Anti-Ragging Certificate
+Name, Enrollment No., Course, Institute, Date, Declaration
+2026-01-30 11:47:12,307 - INFO: Extracted format from PDF: Name, Enrollment No., Course, Institute, Date, Declaration
+2026-01-30 11:48:45,296 - INFO: verify_certificate START id=6975f63b7d3c3e7938ae00eb user=inspector1
+2026-01-30 11:48:50,149 - INFO: Saved temp file C:\Users\ACER\AppData\Local\Temp\tmp6s38f99d.pdf (size=6374009)
+2026-01-30 11:48:50,149 - INFO: Running CertificateVerifier.process_certificate for C:\Users\ACER\AppData\Local\Temp\tmp6s38f99d.pdf
+2026-01-30 11:49:14,412 - INFO: verify_certificate START id=6975f63c7d3c3e7938ae00ee user=inspector1
+2026-01-30 11:49:15,008 - INFO: Saved temp file C:\Users\ACER\AppData\Local\Temp\tmpbg8_8dlb.pdf (size=183760)
+2026-01-30 11:49:15,009 - INFO: Running CertificateVerifier.process_certificate for C:\Users\ACER\AppData\Local\Temp\tmpbg8_8dlb.pdf
+2026-01-30 11:49:15,465 - INFO: verify_certificate START id=6975f63d7d3c3e7938ae00f1 user=inspector1
+2026-01-30 11:49:15,732 - INFO: Verifier results for 6975f63c7d3c3e7938ae00ee: {'text_extraction': True, 'certificate_type': 'Professional Certificate', 'format_match': False, 'format_details': {'overall_similarity': 38.5, 'element_matches': {'name': 25, 'certification': 46, 'issuing body': 33, 'date': 50}}} (duration=0.72s)
+2026-01-30 11:49:15,892 - INFO: Saved temp file C:\Users\ACER\AppData\Local\Temp\tmp27hd673y.pdf (size=183760)
+2026-01-30 11:49:15,892 - INFO: Running CertificateVerifier.process_certificate for C:\Users\ACER\AppData\Local\Temp\tmp27hd673y.pdf
+2026-01-30 11:49:16,163 - INFO: Verifier results for 6975f63d7d3c3e7938ae00f1: {'text_extraction': True, 'certificate_type': 'Professional Certificate', 'format_match': False, 'format_details': {'overall_similarity': 38.5, 'element_matches': {'name': 25, 'certification': 46, 'issuing body': 33, 'date': 50}}} (duration=0.27s)
+2026-01-30 11:49:16,189 - INFO: verify_certificate START id=6975f63d7d3c3e7938ae00f5 user=inspector1
+2026-01-30 11:49:16,548 - INFO: Updated certificate 6975f63c7d3c3e7938ae00ee verified=Rejected score=38.5
+2026-01-30 11:49:16,550 - INFO: Removed temp file: C:\Users\ACER\AppData\Local\Temp\tmpbg8_8dlb.pdf
+2026-01-30 11:49:16,550 - INFO: verify_certificate END id=6975f63c7d3c3e7938ae00ee
+2026-01-30 11:49:16,703 - INFO: Saved temp file C:\Users\ACER\AppData\Local\Temp\tmpynajhqpo.pdf (size=303515)
+2026-01-30 11:49:16,704 - INFO: Running CertificateVerifier.process_certificate for C:\Users\ACER\AppData\Local\Temp\tmpynajhqpo.pdf
+2026-01-30 11:49:16,769 - INFO: Verifier results for 6975f63d7d3c3e7938ae00f5: {'text_extraction': True, 'certificate_type': 'Academic Certificate', 'format_match': False, 'format_details': {'overall_similarity': 37.0, 'element_matches': {'name': 25, 'degree': 33, 'major': 40, 'university': 40, 'graduation date': 47}}} (duration=0.06s)
+2026-01-30 11:49:16,879 - INFO: Updated certificate 6975f63d7d3c3e7938ae00f5 verified=Rejected score=37.0
+2026-01-30 11:49:16,880 - INFO: Updated certificate 6975f63d7d3c3e7938ae00f1 verified=Rejected score=38.5
+2026-01-30 11:49:16,881 - INFO: Removed temp file: C:\Users\ACER\AppData\Local\Temp\tmpynajhqpo.pdf
+2026-01-30 11:49:16,882 - INFO: Removed temp file: C:\Users\ACER\AppData\Local\Temp\tmp27hd673y.pdf
+2026-01-30 11:49:16,883 - INFO: verify_certificate END id=6975f63d7d3c3e7938ae00f5
+2026-01-30 11:49:16,887 - INFO: verify_certificate END id=6975f63d7d3c3e7938ae00f1
+2026-01-30 11:49:34,082 - INFO: verify_certificate START id=6975f63f7d3c3e7938ae0100 user=inspector1
+2026-01-30 11:49:34,123 - INFO: verify_certificate START id=6975f63e7d3c3e7938ae00f8 user=inspector1
+2026-01-30 11:49:34,132 - INFO: verify_certificate START id=6975f63e7d3c3e7938ae00fc user=inspector1
+2026-01-30 11:49:34,880 - INFO: Saved temp file C:\Users\ACER\AppData\Local\Temp\tmphi12mese.pdf (size=183760)
+2026-01-30 11:49:34,881 - INFO: Running CertificateVerifier.process_certificate for C:\Users\ACER\AppData\Local\Temp\tmphi12mese.pdf
+2026-01-30 11:49:34,897 - INFO: Saved temp file C:\Users\ACER\AppData\Local\Temp\tmpxn56t6j0.pdf (size=303515)
+2026-01-30 11:49:34,898 - INFO: Running CertificateVerifier.process_certificate for C:\Users\ACER\AppData\Local\Temp\tmpxn56t6j0.pdf
+2026-01-30 11:49:35,064 - INFO: Saved temp file C:\Users\ACER\AppData\Local\Temp\tmpfcpnt9fl.pdf (size=303515)
+2026-01-30 11:49:35,068 - INFO: verify_certificate START id=6975f63f7d3c3e7938ae0103 user=inspector1
+2026-01-30 11:49:35,094 - INFO: Running CertificateVerifier.process_certificate for C:\Users\ACER\AppData\Local\Temp\tmpfcpnt9fl.pdf
+2026-01-30 11:49:35,115 - INFO: Verifier results for 6975f63e7d3c3e7938ae00fc: {'text_extraction': True, 'certificate_type': 'Academic Certificate', 'format_match': False, 'format_details': {'overall_similarity': 37.0, 'element_matches': {'name': 25, 'degree': 33, 'major': 40, 'university': 40, 'graduation date': 47}}} (duration=0.17s)
+2026-01-30 11:49:35,730 - INFO: Verifier results for 6975f63f7d3c3e7938ae0100: {'text_extraction': True, 'certificate_type': 'Academic Certificate', 'format_match': False, 'format_details': {'overall_similarity': 37.0, 'element_matches': {'name': 25, 'degree': 33, 'major': 40, 'university': 40, 'graduation date': 47}}} (duration=0.65s)
+2026-01-30 11:49:35,743 - INFO: Updated certificate 6975f63e7d3c3e7938ae00fc verified=Rejected score=37.0
+2026-01-30 11:49:35,776 - INFO: Removed temp file: C:\Users\ACER\AppData\Local\Temp\tmpxn56t6j0.pdf
+2026-01-30 11:49:35,792 - INFO: verify_certificate END id=6975f63e7d3c3e7938ae00fc
+2026-01-30 11:49:35,841 - INFO: verify_certificate START id=6975f63f7d3c3e7938ae0106 user=inspector1
+2026-01-30 11:49:35,914 - INFO: Updated certificate 6975f63f7d3c3e7938ae0100 verified=Rejected score=37.0
+2026-01-30 11:49:35,946 - INFO: Removed temp file: C:\Users\ACER\AppData\Local\Temp\tmpfcpnt9fl.pdf
+2026-01-30 11:49:35,978 - INFO: verify_certificate END id=6975f63f7d3c3e7938ae0100
+2026-01-30 11:49:36,048 - INFO: Verifier results for 6975f63e7d3c3e7938ae00f8: {'text_extraction': True, 'certificate_type': 'Professional Certificate', 'format_match': False, 'format_details': {'overall_similarity': 38.5, 'element_matches': {'name': 25, 'certification': 46, 'issuing body': 33, 'date': 50}}} (duration=1.17s)
+2026-01-30 11:49:36,080 - INFO: Saved temp file C:\Users\ACER\AppData\Local\Temp\tmp08fky0xa.pdf (size=183760)
+2026-01-30 11:49:36,081 - INFO: Running CertificateVerifier.process_certificate for C:\Users\ACER\AppData\Local\Temp\tmp08fky0xa.pdf
+2026-01-30 11:49:36,143 - INFO: Updated certificate 6975f63e7d3c3e7938ae00f8 verified=Rejected score=38.5
+2026-01-30 11:49:36,145 - INFO: Removed temp file: C:\Users\ACER\AppData\Local\Temp\tmphi12mese.pdf
+2026-01-30 11:49:36,147 - INFO: verify_certificate END id=6975f63e7d3c3e7938ae00f8
+2026-01-30 11:49:36,389 - INFO: Verifier results for 6975f63f7d3c3e7938ae0103: {'text_extraction': True, 'certificate_type': 'Professional Certificate', 'format_match': False, 'format_details': {'overall_similarity': 38.5, 'element_matches': {'name': 25, 'certification': 46, 'issuing body': 33, 'date': 50}}} (duration=0.31s)
+2026-01-30 11:49:36,434 - INFO: Saved temp file C:\Users\ACER\AppData\Local\Temp\tmpodt09h72.pdf (size=183760)
+2026-01-30 11:49:36,437 - INFO: Running CertificateVerifier.process_certificate for C:\Users\ACER\AppData\Local\Temp\tmpodt09h72.pdf
+2026-01-30 11:49:36,504 - INFO: Updated certificate 6975f63f7d3c3e7938ae0103 verified=Rejected score=38.5
+2026-01-30 11:49:36,571 - INFO: Removed temp file: C:\Users\ACER\AppData\Local\Temp\tmp08fky0xa.pdf
+2026-01-30 11:49:36,587 - INFO: verify_certificate END id=6975f63f7d3c3e7938ae0103
+2026-01-30 11:49:36,777 - INFO: Verifier results for 6975f63f7d3c3e7938ae0106: {'text_extraction': True, 'certificate_type': 'Professional Certificate', 'format_match': False, 'format_details': {'overall_similarity': 38.5, 'element_matches': {'name': 25, 'certification': 46, 'issuing body': 33, 'date': 50}}} (duration=0.34s)
+2026-01-30 11:49:36,863 - INFO: Updated certificate 6975f63f7d3c3e7938ae0106 verified=Rejected score=38.5
+2026-01-30 11:49:36,865 - INFO: Removed temp file: C:\Users\ACER\AppData\Local\Temp\tmpodt09h72.pdf
+2026-01-30 11:49:36,866 - INFO: verify_certificate END id=6975f63f7d3c3e7938ae0106
+2026-01-30 11:49:45,379 - INFO: verify_certificate START id=6975f6407d3c3e7938ae010c user=inspector1
+2026-01-30 11:49:45,396 - INFO: verify_certificate START id=6975f6407d3c3e7938ae0109 user=inspector1
+2026-01-30 11:49:45,591 - INFO: verify_certificate START id=6975f6417d3c3e7938ae0110 user=inspector1
+2026-01-30 11:49:46,048 - INFO: Saved temp file C:\Users\ACER\AppData\Local\Temp\tmpks6_f1bu.pdf (size=183760)
+2026-01-30 11:49:46,049 - INFO: Running CertificateVerifier.process_certificate for C:\Users\ACER\AppData\Local\Temp\tmpks6_f1bu.pdf
+2026-01-30 11:49:46,058 - INFO: Saved temp file C:\Users\ACER\AppData\Local\Temp\tmpzbd9hf1e.pdf (size=183760)
+2026-01-30 11:49:46,061 - INFO: Running CertificateVerifier.process_certificate for C:\Users\ACER\AppData\Local\Temp\tmpzbd9hf1e.pdf
+2026-01-30 11:49:46,405 - INFO: Saved temp file C:\Users\ACER\AppData\Local\Temp\tmp5mkrrg39.pdf (size=303515)
+2026-01-30 11:49:46,406 - INFO: Running CertificateVerifier.process_certificate for C:\Users\ACER\AppData\Local\Temp\tmp5mkrrg39.pdf
+2026-01-30 11:49:50,062 - INFO: Verifier results for 6975f6417d3c3e7938ae0110: {'text_extraction': True, 'certificate_type': 'Academic Certificate', 'format_match': False, 'format_details': {'overall_similarity': 37.0, 'element_matches': {'name': 25, 'degree': 33, 'major': 40, 'university': 40, 'graduation date': 47}}} (duration=3.63s)
+2026-01-30 11:49:50,564 - INFO: Updated certificate 6975f6417d3c3e7938ae0110 verified=Rejected score=37.0
+2026-01-30 11:49:50,615 - INFO: Removed temp file: C:\Users\ACER\AppData\Local\Temp\tmp5mkrrg39.pdf
+2026-01-30 11:49:50,653 - INFO: verify_certificate END id=6975f6417d3c3e7938ae0110
+2026-01-30 11:49:52,247 - INFO: Verifier results for 6975f6407d3c3e7938ae010c: {'text_extraction': True, 'certificate_type': 'Professional Certificate', 'format_match': False, 'format_details': {'overall_similarity': 38.5, 'element_matches': {'name': 25, 'certification': 46, 'issuing body': 33, 'date': 50}}} (duration=6.18s)
+2026-01-30 11:49:52,256 - INFO: Verifier results for 6975f6407d3c3e7938ae0109: {'text_extraction': True, 'certificate_type': 'Professional Certificate', 'format_match': False, 'format_details': {'overall_similarity': 38.5, 'element_matches': {'name': 25, 'certification': 46, 'issuing body': 33, 'date': 50}}} (duration=6.20s)
+2026-01-30 11:49:52,358 - INFO: Updated certificate 6975f6407d3c3e7938ae010c verified=Rejected score=38.5
+2026-01-30 11:49:52,364 - INFO: Updated certificate 6975f6407d3c3e7938ae0109 verified=Rejected score=38.5
+2026-01-30 11:49:52,366 - INFO: Removed temp file: C:\Users\ACER\AppData\Local\Temp\tmpzbd9hf1e.pdf
+2026-01-30 11:49:52,369 - INFO: Removed temp file: C:\Users\ACER\AppData\Local\Temp\tmpks6_f1bu.pdf
+2026-01-30 11:49:52,375 - INFO: verify_certificate END id=6975f6407d3c3e7938ae010c
+2026-01-30 11:49:52,377 - INFO: verify_certificate END id=6975f6407d3c3e7938ae0109
+2026-01-30 11:50:10,640 - INFO: verify_certificate START id=6975f63b7d3c3e7938ae00eb user=inspector1
+2026-01-30 11:50:14,238 - INFO: Saved temp file C:\Users\ACER\AppData\Local\Temp\tmp_ixp7rn6.pdf (size=6374009)
+2026-01-30 11:50:14,240 - INFO: Running CertificateVerifier.process_certificate for C:\Users\ACER\AppData\Local\Temp\tmp_ixp7rn6.pdf
+2026-01-30 16:18:12,221 - INFO: Extracted format from PDF: Name, Enrollment No., Course, Institute, Date, Declaration
+2026-01-31 09:08:32,516 - INFO: Verifier results for 6975f6337d3c3e7938ae00b7: {'text_extraction': True, 'certificate_type': 'Academic Certificate', 'format_match': False, 'format_details': {'overall_similarity': 49.0, 'element_matches': {'name': 25, 'degree': 33, 'major': 40, 'university': 100, 'graduation date': 47}}, 'regulatory_check': None} (duration=33.37s)
+2026-01-31 09:08:32,598 - INFO: Updated certificate 6975f6337d3c3e7938ae00b7 verified=Rejected score=49.0
+2026-01-31 09:08:32,599 - INFO: Removed temp file: C:\Users\ACER\AppData\Local\Temp\tmp234j7oms.pdf
+2026-01-31 09:08:32,600 - INFO: verify_certificate END id=6975f6337d3c3e7938ae00b7
+2026-01-31 09:08:40,742 - INFO: verify_certificate START id=6975f6347d3c3e7938ae00ba user=inspector1
+2026-01-31 09:08:41,328 - INFO: Saved temp file C:\Users\ACER\AppData\Local\Temp\tmp4q6vphrh.pdf (size=183760)
+2026-01-31 09:08:41,329 - INFO: Running CertificateVerifier.process_certificate for C:\Users\ACER\AppData\Local\Temp\tmp4q6vphrh.pdf
+2026-01-31 09:08:41,551 - INFO: Verifier results for 6975f6347d3c3e7938ae00ba: {'text_extraction': True, 'certificate_type': 'Professional Certificate', 'format_match': False, 'format_details': {'overall_similarity': 38.5, 'element_matches': {'name': 25, 'certification': 46, 'issuing body': 33, 'date': 50}}, 'regulatory_check': None} (duration=0.22s)
+2026-01-31 09:08:41,643 - INFO: Updated certificate 6975f6347d3c3e7938ae00ba verified=Rejected score=38.5
+2026-01-31 09:08:41,644 - INFO: Removed temp file: C:\Users\ACER\AppData\Local\Temp\tmp4q6vphrh.pdf
+2026-01-31 09:08:41,646 - INFO: verify_certificate END id=6975f6347d3c3e7938ae00ba
+2026-01-31 09:08:49,586 - INFO: verify_certificate START id=6975f63b7d3c3e7938ae00eb user=inspector1
+2026-01-31 09:08:57,444 - INFO: Saved temp file C:\Users\ACER\AppData\Local\Temp\tmpc20c0g8b.pdf (size=6374009)
+2026-01-31 09:08:57,445 - INFO: Running CertificateVerifier.process_certificate for C:\Users\ACER\AppData\Local\Temp\tmpc20c0g8b.pdf
+2026-03-30 15:24:16,571 - WARNING: Not Found: /options/option.js
+2026-03-30 15:25:17,997 - INFO: verify_certificate START id=69ca4818a70f47f1e7e61462 user=inspector2
+2026-03-30 15:25:18,160 - INFO: Saved temp file C:\Users\ACER\AppData\Local\Temp\tmp892y5v7u.pdf (size=0)
+2026-03-30 15:25:18,161 - INFO: Running CertificateVerifier.process_certificate for C:\Users\ACER\AppData\Local\Temp\tmp892y5v7u.pdf
+2026-03-30 15:25:18,161 - ERROR: Text extraction failed: Cannot read an empty file
+2026-03-30 15:25:18,162 - ERROR: No text could be extracted from the PDF
+2026-03-30 15:25:18,162 - INFO: Verifier results for 69ca4818a70f47f1e7e61462: {'text_extraction': False, 'certificate_type': None, 'detection_status': 'Missing', 'format_match': False, 'format_details': None} (duration=0.00s)
+2026-03-30 15:25:18,258 - INFO: Updated certificate 69ca4818a70f47f1e7e61462 verified=Rejected score=0
+2026-03-30 15:25:18,259 - INFO: Removed temp file: C:\Users\ACER\AppData\Local\Temp\tmp892y5v7u.pdf
+2026-03-30 15:25:18,259 - INFO: verify_certificate END id=69ca4818a70f47f1e7e61462
+2026-03-30 15:25:23,438 - INFO: verify_certificate START id=69ca4818a70f47f1e7e61462 user=inspector2
+2026-03-30 15:25:23,637 - INFO: Saved temp file C:\Users\ACER\AppData\Local\Temp\tmp6_9qqxut.pdf (size=0)
+2026-03-30 15:25:23,637 - INFO: Running CertificateVerifier.process_certificate for C:\Users\ACER\AppData\Local\Temp\tmp6_9qqxut.pdf
+2026-03-30 15:25:23,638 - ERROR: Text extraction failed: Cannot read an empty file
+2026-03-30 15:25:23,638 - ERROR: No text could be extracted from the PDF
+2026-03-30 15:25:23,639 - INFO: Verifier results for 69ca4818a70f47f1e7e61462: {'text_extraction': False, 'certificate_type': None, 'detection_status': 'Missing', 'format_match': False, 'format_details': None} (duration=0.00s)
+2026-03-30 15:25:23,721 - INFO: Updated certificate 69ca4818a70f47f1e7e61462 verified=Rejected score=0
+2026-03-30 15:25:23,722 - INFO: Removed temp file: C:\Users\ACER\AppData\Local\Temp\tmp6_9qqxut.pdf
+2026-03-30 15:25:23,723 - INFO: verify_certificate END id=69ca4818a70f47f1e7e61462
+2026-03-30 15:30:01,879 - INFO: C:\Users\ACER\Downloads\Nirikshan-SahAI-main\major\inspector\views.py changed, reloading.
+2026-03-30 15:39:26,736 - ERROR: Text extraction failed: Cannot read an empty file
+2026-03-30 15:39:26,737 - ERROR: No text could be extracted from the PDF
+2026-03-30 15:39:26,738 - INFO: Verifier results for 69ca4818a70f47f1e7e61462: {'text_extraction': False, 'certificate_type': None, 'detection_status': 'Missing', 'format_match': False, 'format_details': None} (duration=2.83s)
+2026-03-30 15:39:27,011 - INFO: Updated certificate 69ca4818a70f47f1e7e61462 verified=Rejected score=0
+2026-03-30 15:39:27,014 - INFO: Removed temp file: C:\Users\ACER\AppData\Local\Temp\tmpwhi7i5m0.pdf
+2026-03-30 15:39:27,015 - INFO: Queuing compliance report regeneration for college CD GROUP OF INSTITUTIONS
+2026-03-30 15:39:27,018 - INFO: verify_certificate END id=69ca4818a70f47f1e7e61462
+2026-03-30 15:39:37,554 - INFO: verify_certificate START id=69ca4818a70f47f1e7e61462 user=inspector2
+2026-03-30 15:39:39,804 - INFO: Saved temp file C:\Users\ACER\AppData\Local\Temp\tmp8pvsn8bu.pdf (size=0)
+2026-03-30 15:39:39,805 - INFO: Running CertificateVerifier.process_certificate for C:\Users\ACER\AppData\Local\Temp\tmp8pvsn8bu.pdf
+2026-03-30 15:39:39,806 - ERROR: Text extraction failed: Cannot read an empty file
+2026-03-30 15:39:39,807 - ERROR: No text could be extracted from the PDF
+2026-03-30 15:39:39,808 - INFO: Verifier results for 69ca4818a70f47f1e7e61462: {'text_extraction': False, 'certificate_type': None, 'detection_status': 'Missing', 'format_match': False, 'format_details': None} (duration=0.00s)
+2026-03-30 15:39:41,422 - INFO: Updated certificate 69ca4818a70f47f1e7e61462 verified=Rejected score=0
+2026-03-30 15:39:41,423 - INFO: Removed temp file: C:\Users\ACER\AppData\Local\Temp\tmp8pvsn8bu.pdf
+2026-03-30 15:39:41,424 - INFO: Queuing compliance report regeneration for college CD GROUP OF INSTITUTIONS
+2026-03-30 15:39:41,427 - INFO: verify_certificate END id=69ca4818a70f47f1e7e61462
+2026-03-30 15:39:49,010 - INFO: verify_certificate START id=69ca481ba70f47f1e7e61468 user=inspector2
+2026-03-30 15:39:49,436 - INFO: Saved temp file C:\Users\ACER\AppData\Local\Temp\tmp5iv7o0j1.pdf (size=0)
+2026-03-30 15:39:49,437 - INFO: Running CertificateVerifier.process_certificate for C:\Users\ACER\AppData\Local\Temp\tmp5iv7o0j1.pdf
+2026-03-30 15:39:49,438 - ERROR: Text extraction failed: Cannot read an empty file
+2026-03-30 15:39:49,438 - ERROR: No text could be extracted from the PDF
+2026-03-30 15:39:49,439 - INFO: Verifier results for 69ca481ba70f47f1e7e61468: {'text_extraction': False, 'certificate_type': None, 'detection_status': 'Missing', 'format_match': False, 'format_details': None} (duration=0.00s)
+2026-03-30 15:39:49,555 - INFO: Updated certificate 69ca481ba70f47f1e7e61468 verified=Rejected score=0
+2026-03-30 15:39:49,556 - INFO: Removed temp file: C:\Users\ACER\AppData\Local\Temp\tmp5iv7o0j1.pdf
+2026-03-30 15:39:49,556 - INFO: Queuing compliance report regeneration for college CD GROUP OF INSTITUTIONS
+2026-03-30 15:39:49,558 - INFO: verify_certificate END id=69ca481ba70f47f1e7e61468
+2026-03-30 15:40:49,498 - INFO: Compliance report regenerated for college=CD GROUP OF INSTITUTIONS intake=660
+2026-03-30 15:41:19,056 - INFO: Compliance report regenerated for college=CD GROUP OF INSTITUTIONS intake=660
+2026-03-30 15:41:46,122 - INFO: Compliance report regenerated for college=CD GROUP OF INSTITUTIONS intake=660
+2026-03-30 15:41:59,440 - INFO: C:\Users\ACER\Downloads\Nirikshan-SahAI-main\major\inspector\views.py changed, reloading.
+2026-03-30 15:45:42,991 - ERROR: Text extraction failed: Cannot read an empty file
+2026-03-30 15:45:42,992 - ERROR: No text could be extracted from the PDF
+2026-03-30 15:45:42,992 - INFO: Verifier results for 69ca4818a70f47f1e7e61462: {'text_extraction': False, 'certificate_type': None, 'detection_status': 'Missing', 'format_match': False, 'format_details': None} (duration=2.82s)
+2026-03-30 15:45:43,357 - INFO: Updated certificate 69ca4818a70f47f1e7e61462 | verified=Rejected | score=0
+2026-03-30 15:45:43,358 - INFO: Removed temp file: C:\Users\ACER\AppData\Local\Temp\tmpw36_7lfc.pdf
+2026-03-30 15:45:43,359 - INFO: Queuing compliance report regeneration for college CD GROUP OF INSTITUTIONS
+2026-03-30 15:45:43,361 - INFO: verify_certificate END id=69ca4818a70f47f1e7e61462
+2026-03-30 15:45:50,733 - INFO: verify_certificate START id=69ca481ca70f47f1e7e6146a user=inspector2
+2026-03-30 15:45:50,922 - INFO: Saved temp file C:\Users\ACER\AppData\Local\Temp\tmpx4nrlits.pdf (size=0)
+2026-03-30 15:45:50,922 - INFO: Running CertificateVerifier.process_certificate for C:\Users\ACER\AppData\Local\Temp\tmpx4nrlits.pdf
+2026-03-30 15:45:50,923 - ERROR: Text extraction failed: Cannot read an empty file
+2026-03-30 15:45:50,923 - ERROR: No text could be extracted from the PDF
+2026-03-30 15:45:50,924 - INFO: Verifier results for 69ca481ca70f47f1e7e6146a: {'text_extraction': False, 'certificate_type': None, 'detection_status': 'Missing', 'format_match': False, 'format_details': None} (duration=0.00s)
+2026-03-30 15:45:51,016 - INFO: Updated certificate 69ca481ca70f47f1e7e6146a | verified=Rejected | score=0
+2026-03-30 15:45:51,017 - INFO: Removed temp file: C:\Users\ACER\AppData\Local\Temp\tmpx4nrlits.pdf
+2026-03-30 15:45:51,018 - INFO: Queuing compliance report regeneration for college CD GROUP OF INSTITUTIONS
+2026-03-30 15:45:51,020 - INFO: verify_certificate END id=69ca481ca70f47f1e7e6146a
+2026-03-30 15:46:18,201 - INFO: Compliance report regenerated: college=CD GROUP OF INSTITUTIONS intake=660
+2026-03-30 15:46:18,202 - INFO: Compliance regeneration complete: 1/1 successful
+2026-03-30 15:46:48,676 - INFO: Compliance report regenerated: college=CD GROUP OF INSTITUTIONS intake=660
+2026-03-30 15:46:48,677 - INFO: Compliance regeneration complete: 1/1 successful
+2026-03-30 15:51:09,300 - INFO: C:\Users\ACER\Downloads\Nirikshan-SahAI-main\major\inspector\views.py changed, reloading.
+2026-03-30 16:56:35,934 - INFO: verify_certificate START id=69ca5dc31464e037475fea63 user=inspector2
+2026-03-30 16:56:36,076 - INFO: File object type: <class 'mongoengine.fields.GridFSProxy'>
+2026-03-30 16:56:36,330 - INFO: Read 5203 bytes using file.read()
+2026-03-30 16:56:36,331 - INFO: Saved temp file C:\Users\ACER\AppData\Local\Temp\tmp0znoe8tk.pdf (size=5203)
+2026-03-30 16:56:36,332 - INFO: Running CertificateVerifier.process_certificate for C:\Users\ACER\AppData\Local\Temp\tmp0znoe8tk.pdf
+2026-03-30 16:56:36,365 - INFO: Verifier results for 69ca5dc31464e037475fea63: {'text_extraction': True, 'certificate_type': 'Academic Certificate', 'detection_status': 'Uncertain', 'detection_score': 47.9, 'format_match': False, 'format_similarity': 52.4, 'certificate_status': 'Found but Weak Match', 'format_details': {'overall_similarity': 52.4, 'element_matches': {'name': 25, 'degree': 50, 'major': 40, 'university': 100, 'graduation date': 47}}, 'regulatory_check': None, 'date_fields': {'issue_date': datetime.date(2026, 3, 30), 'valid_from': None, 'valid_upto': None, 'expiry_date': None}, 'validity_status': 'Only Issue Date Found', 'authority_match': False, 'authority_details': [], 'metadata_score': 0.0, 'metadata_match': False, 'metadata_details': {}, 'identifier_found': False, 'identifier_value': None, 'identifier_valid': False, 'identifiers': {}, 'authenticity_score': 30, 'final_status': 'Invalid', 'reasons': ['Profile match uncertain', 'Regulatory not checked', 'Issuing authority not matched', 'Critical identifier missing or invalid', 'Institute metadata mismatch', 'Only issue date found'], 'recommendations': ['Confirm issuing authority label on certificate.', 'Include/verify registration or approval number.', 'Verify institute/branch/city details in certificate text.']} (duration=0.03s)
+2026-03-30 16:56:36,366 - INFO: Raw authenticity_score type=<class 'int'> value=30
+2026-03-30 16:56:36,366 - INFO: Extracted score directly: 30.0
+2026-03-30 16:56:36,367 - INFO: Using final_status from verifier: Invalid
+2026-03-30 16:56:36,493 - INFO: Updated certificate 69ca5dc31464e037475fea63 | verified=Invalid | score=30
+2026-03-30 16:56:36,494 - INFO: Removed temp file: C:\Users\ACER\AppData\Local\Temp\tmp0znoe8tk.pdf
+2026-03-30 16:56:36,495 - INFO: Queuing compliance report regeneration for college CD GROUP OF INSTITUTIONS
+2026-03-30 16:56:36,497 - INFO: verify_certificate END id=69ca5dc31464e037475fea63
+2026-03-30 16:56:47,769 - INFO: verify_certificate START id=69ca5dc31464e037475fea63 user=inspector2
+2026-03-30 16:56:47,895 - INFO: File object type: <class 'mongoengine.fields.GridFSProxy'>
+2026-03-30 16:56:48,218 - INFO: Read 5203 bytes using file.read()
+2026-03-30 16:56:48,219 - INFO: Saved temp file C:\Users\ACER\AppData\Local\Temp\tmpchs60ny_.pdf (size=5203)
+2026-03-30 16:56:48,220 - INFO: Running CertificateVerifier.process_certificate for C:\Users\ACER\AppData\Local\Temp\tmpchs60ny_.pdf
+2026-03-30 16:56:48,300 - INFO: Verifier results for 69ca5dc31464e037475fea63: {'text_extraction': True, 'certificate_type': 'Academic Certificate', 'detection_status': 'Uncertain', 'detection_score': 44.8, 'format_match': False, 'format_similarity': 52.4, 'certificate_status': 'Found but Weak Match', 'format_details': {'overall_similarity': 52.4, 'element_matches': {'name': 25, 'degree': 50, 'major': 40, 'university': 100, 'graduation date': 47}}, 'regulatory_check': None, 'date_fields': {'issue_date': datetime.date(2026, 3, 30), 'valid_from': None, 'valid_upto': None, 'expiry_date': None}, 'validity_status': 'Only Issue Date Found', 'authority_match': False, 'authority_details': [], 'metadata_score': 0.0, 'metadata_match': False, 'metadata_details': {}, 'identifier_found': False, 'identifier_value': None, 'identifier_valid': False, 'identifiers': {}, 'authenticity_score': 30, 'final_status': 'Invalid', 'reasons': ['Profile match uncertain', 'Regulatory not checked', 'Issuing authority not matched', 'Critical identifier missing or invalid', 'Institute metadata mismatch', 'Only issue date found'], 'recommendations': ['Confirm issuing authority label on certificate.', 'Include/verify registration or approval number.', 'Verify institute/branch/city details in certificate text.']} (duration=0.08s)
+2026-03-30 16:56:48,304 - INFO: Raw authenticity_score type=<class 'int'> value=30
+2026-03-30 16:56:48,304 - INFO: Extracted score directly: 30.0
+2026-03-30 16:56:48,305 - INFO: Using final_status from verifier: Invalid
+2026-03-30 16:56:48,433 - INFO: Updated certificate 69ca5dc31464e037475fea63 | verified=Invalid | score=30
+2026-03-30 16:56:48,434 - INFO: Removed temp file: C:\Users\ACER\AppData\Local\Temp\tmpchs60ny_.pdf
+2026-03-30 16:56:48,435 - INFO: Queuing compliance report regeneration for college CD GROUP OF INSTITUTIONS
+2026-03-30 16:56:48,437 - INFO: verify_certificate END id=69ca5dc31464e037475fea63
+2026-03-30 16:56:55,292 - INFO: verify_certificate START id=69ca5dc81464e037475fea6c user=inspector2
+2026-03-30 16:56:55,412 - INFO: File object type: <class 'mongoengine.fields.GridFSProxy'>
+2026-03-30 16:56:55,662 - INFO: Read 5006 bytes using file.read()
+2026-03-30 16:56:55,665 - INFO: Saved temp file C:\Users\ACER\AppData\Local\Temp\tmpg7a2rzr8.pdf (size=5006)
+2026-03-30 16:56:55,666 - INFO: Running CertificateVerifier.process_certificate for C:\Users\ACER\AppData\Local\Temp\tmpg7a2rzr8.pdf
+2026-03-30 16:56:55,716 - INFO: Verifier results for 69ca5dc81464e037475fea6c: {'text_extraction': True, 'certificate_type': 'Professional Certificate', 'detection_status': 'Uncertain', 'detection_score': 44.8, 'format_match': True, 'format_similarity': 73.5, 'certificate_status': 'Found and Valid', 'format_details': {'overall_similarity': 73.5, 'element_matches': {'name': 100, 'certification': 77, 'issuing body': 42, 'date': 75}}, 'regulatory_check': None, 'date_fields': {'issue_date': datetime.date(2026, 3, 30), 'valid_from': None, 'valid_upto': None, 'expiry_date': None}, 'validity_status': 'Only Issue Date Found', 'authority_match': False, 'authority_details': [], 'metadata_score': 0.0, 'metadata_match': False, 'metadata_details': {}, 'identifier_found': False, 'identifier_value': None, 'identifier_valid': False, 'identifiers': {}, 'authenticity_score': 30, 'final_status': 'Invalid', 'reasons': ['Profile match uncertain', 'Regulatory not checked', 'Issuing authority not matched', 'Critical identifier missing or invalid', 'Institute metadata mismatch', 'Only issue date found'], 'recommendations': ['Confirm issuing authority label on certificate.', 'Include/verify registration or approval number.', 'Verify institute/branch/city details in certificate text.']} (duration=0.05s)
+2026-03-30 16:56:55,717 - INFO: Raw authenticity_score type=<class 'int'> value=30
+2026-03-30 16:56:55,717 - INFO: Extracted score directly: 30.0
+2026-03-30 16:56:55,718 - INFO: Using final_status from verifier: Invalid
+2026-03-30 16:56:55,852 - INFO: Updated certificate 69ca5dc81464e037475fea6c | verified=Invalid | score=30
+2026-03-30 16:56:55,854 - INFO: Removed temp file: C:\Users\ACER\AppData\Local\Temp\tmpg7a2rzr8.pdf
+2026-03-30 16:56:55,855 - INFO: Queuing compliance report regeneration for college CD GROUP OF INSTITUTIONS
+2026-03-30 16:56:55,858 - INFO: verify_certificate END id=69ca5dc81464e037475fea6c
+2026-03-30 16:57:18,805 - INFO: Compliance report regenerated: college=CD GROUP OF INSTITUTIONS intake=660
+2026-03-30 16:57:18,805 - INFO: Compliance regeneration complete: 1/1 successful
+2026-03-30 16:57:51,453 - INFO: Compliance report regenerated: college=CD GROUP OF INSTITUTIONS intake=660
+2026-03-30 16:57:51,454 - INFO: Compliance regeneration complete: 1/1 successful
+2026-03-30 16:58:22,280 - INFO: Compliance report regenerated: college=CD GROUP OF INSTITUTIONS intake=660
+2026-03-30 16:58:22,281 - INFO: Compliance regeneration complete: 1/1 successful
+2026-03-30 16:58:35,835 - INFO: verify_certificate START id=69ca5dc31464e037475fea63 user=inspector2
+2026-03-30 16:58:35,964 - INFO: File object type: <class 'mongoengine.fields.GridFSProxy'>
+2026-03-30 16:58:36,238 - INFO: Read 5203 bytes using file.read()
+2026-03-30 16:58:36,239 - INFO: Saved temp file C:\Users\ACER\AppData\Local\Temp\tmp3y3t3wva.pdf (size=5203)
+2026-03-30 16:58:36,240 - INFO: Running CertificateVerifier.process_certificate for C:\Users\ACER\AppData\Local\Temp\tmp3y3t3wva.pdf
+2026-03-30 16:58:36,277 - INFO: Verifier results for 69ca5dc31464e037475fea63: {'text_extraction': True, 'certificate_type': 'Academic Certificate', 'detection_status': 'Uncertain', 'detection_score': 47.9, 'format_match': False, 'format_similarity': 52.4, 'certificate_status': 'Found but Weak Match', 'format_details': {'overall_similarity': 52.4, 'element_matches': {'name': 25, 'degree': 50, 'major': 40, 'university': 100, 'graduation date': 47}}, 'regulatory_check': None, 'date_fields': {'issue_date': datetime.date(2026, 3, 30), 'valid_from': None, 'valid_upto': None, 'expiry_date': None}, 'validity_status': 'Only Issue Date Found', 'authority_match': False, 'authority_details': [], 'metadata_score': 0.0, 'metadata_match': False, 'metadata_details': {}, 'identifier_found': False, 'identifier_value': None, 'identifier_valid': False, 'identifiers': {}, 'authenticity_score': 30, 'final_status': 'Invalid', 'reasons': ['Profile match uncertain', 'Regulatory not checked', 'Issuing authority not matched', 'Critical identifier missing or invalid', 'Institute metadata mismatch', 'Only issue date found'], 'recommendations': ['Confirm issuing authority label on certificate.', 'Include/verify registration or approval number.', 'Verify institute/branch/city details in certificate text.']} (duration=0.04s)
+2026-03-30 16:58:36,277 - INFO: Raw authenticity_score type=<class 'int'> value=30
+2026-03-30 16:58:36,278 - INFO: Extracted score directly: 30.0
+2026-03-30 16:58:36,278 - INFO: Using final_status from verifier: Invalid
+2026-03-30 16:58:36,437 - INFO: Updated certificate 69ca5dc31464e037475fea63 | verified=Invalid | score=30
+2026-03-30 16:58:36,439 - INFO: Removed temp file: C:\Users\ACER\AppData\Local\Temp\tmp3y3t3wva.pdf
+2026-03-30 16:58:36,440 - INFO: Queuing compliance report regeneration for college CD GROUP OF INSTITUTIONS
+2026-03-30 16:58:36,444 - INFO: verify_certificate END id=69ca5dc31464e037475fea63
+2026-03-30 16:59:05,121 - INFO: Compliance report regenerated: college=CD GROUP OF INSTITUTIONS intake=660
+2026-03-30 16:59:05,121 - INFO: Compliance regeneration complete: 1/1 successful
+2026-03-31 08:43:08,685 - INFO: verify_certificate START id=69cb3baa498b5a1bfd87ae51 user=inspector2
+2026-03-31 08:43:08,815 - INFO: File object type: <class 'mongoengine.fields.GridFSProxy'>
+2026-03-31 08:43:08,989 - INFO: Read 5203 bytes using file.read()
+2026-03-31 08:43:09,021 - INFO: Saved temp file C:\Users\ACER\AppData\Local\Temp\tmphttwv3in.pdf (size=5203)
+2026-03-31 08:43:09,021 - INFO: Running CertificateVerifier.process_certificate for C:\Users\ACER\AppData\Local\Temp\tmphttwv3in.pdf
+2026-03-31 08:43:09,084 - INFO: Verifier results for 69cb3baa498b5a1bfd87ae51: {'text_extraction': True, 'certificate_type': 'Academic Certificate', 'detection_status': 'Uncertain', 'detection_score': 47.9, 'format_match': False, 'format_similarity': 52.4, 'certificate_status': 'Found but Weak Match', 'format_details': {'overall_similarity': 52.4, 'element_matches': {'name': 25, 'degree': 50, 'major': 40, 'university': 100, 'graduation date': 47}}, 'regulatory_check': None, 'date_fields': {'issue_date': datetime.date(2026, 3, 30), 'valid_from': None, 'valid_upto': None, 'expiry_date': None}, 'validity_status': 'Only Issue Date Found', 'authority_match': False, 'authority_details': [], 'metadata_score': 0.0, 'metadata_match': False, 'metadata_details': {}, 'identifier_found': False, 'identifier_value': None, 'identifier_valid': False, 'identifiers': {}, 'authenticity_score': 30, 'final_status': 'Invalid', 'reasons': ['Profile match uncertain', 'Regulatory not checked', 'Issuing authority not matched', 'Critical identifier missing or invalid', 'Institute metadata mismatch', 'Only issue date found'], 'recommendations': ['Confirm issuing authority label on certificate.', 'Include/verify registration or approval number.', 'Verify institute/branch/city details in certificate text.']} (duration=0.06s)
+2026-03-31 08:43:09,085 - INFO: Raw authenticity_score type=<class 'int'> value=30
+2026-03-31 08:43:09,086 - INFO: Extracted score directly: 30.0
+2026-03-31 08:43:09,087 - INFO: Using final_status from verifier: Invalid
+2026-03-31 08:43:09,150 - INFO: Updated certificate 69cb3baa498b5a1bfd87ae51 | verified=Invalid | score=30
+2026-03-31 08:43:09,151 - INFO: Removed temp file: C:\Users\ACER\AppData\Local\Temp\tmphttwv3in.pdf
+2026-03-31 08:43:09,152 - INFO: Queuing compliance report regeneration for college CD GROUP OF INSTITUTIONS
+2026-03-31 08:43:09,154 - INFO: verify_certificate END id=69cb3baa498b5a1bfd87ae51
+2026-03-31 08:43:19,926 - INFO: verify_certificate START id=69cb3bab498b5a1bfd87ae54 user=inspector2
+2026-03-31 08:43:20,007 - INFO: File object type: <class 'mongoengine.fields.GridFSProxy'>
+2026-03-31 08:43:20,132 - INFO: Read 4926 bytes using file.read()
+2026-03-31 08:43:20,134 - INFO: Saved temp file C:\Users\ACER\AppData\Local\Temp\tmp_42cco0f.pdf (size=4926)
+2026-03-31 08:43:20,134 - INFO: Running CertificateVerifier.process_certificate for C:\Users\ACER\AppData\Local\Temp\tmp_42cco0f.pdf
+2026-03-31 08:43:20,192 - INFO: Verifier results for 69cb3bab498b5a1bfd87ae54: {'text_extraction': True, 'certificate_type': 'Professional Certificate', 'detection_status': 'Uncertain', 'detection_score': 50.6, 'format_match': False, 'format_similarity': 58.75, 'certificate_status': 'Found but Weak Match', 'format_details': {'overall_similarity': 58.75, 'element_matches': {'name': 50, 'certification': 77, 'issuing body': 58, 'date': 50}}, 'regulatory_check': None, 'date_fields': {'issue_date': datetime.date(2026, 3, 30), 'valid_from': None, 'valid_upto': None, 'expiry_date': None}, 'validity_status': 'Only Issue Date Found', 'authority_match': False, 'authority_details': [], 'metadata_score': 0.0, 'metadata_match': False, 'metadata_details': {}, 'identifier_found': False, 'identifier_value': None, 'identifier_valid': False, 'identifiers': {}, 'authenticity_score': 30, 'final_status': 'Invalid', 'reasons': ['Profile match uncertain', 'Regulatory not checked', 'Issuing authority not matched', 'Critical identifier missing or invalid', 'Institute metadata mismatch', 'Only issue date found'], 'recommendations': ['Confirm issuing authority label on certificate.', 'Include/verify registration or approval number.', 'Verify institute/branch/city details in certificate text.']} (duration=0.05s)
+2026-03-31 08:43:20,193 - INFO: Raw authenticity_score type=<class 'int'> value=30
+2026-03-31 08:43:20,196 - INFO: Extracted score directly: 30.0
+2026-03-31 08:43:20,198 - INFO: Using final_status from verifier: Invalid
+2026-03-31 08:43:20,272 - INFO: Updated certificate 69cb3bab498b5a1bfd87ae54 | verified=Invalid | score=30
+2026-03-31 08:43:20,274 - INFO: Removed temp file: C:\Users\ACER\AppData\Local\Temp\tmp_42cco0f.pdf
+2026-03-31 08:43:20,275 - INFO: Queuing compliance report regeneration for college CD GROUP OF INSTITUTIONS
+2026-03-31 08:43:20,277 - INFO: verify_certificate END id=69cb3bab498b5a1bfd87ae54
+2026-03-31 08:44:38,314 - INFO: verify_certificate START id=69cb3baa498b5a1bfd87ae51 user=inspector2
+2026-03-31 08:44:38,368 - INFO: File object type: <class 'mongoengine.fields.GridFSProxy'>
+2026-03-31 08:44:38,496 - INFO: Read 5203 bytes using file.read()
+2026-03-31 08:44:38,498 - INFO: Saved temp file C:\Users\ACER\AppData\Local\Temp\tmp0vf5f790.pdf (size=5203)
+2026-03-31 08:44:38,498 - INFO: Running CertificateVerifier.process_certificate for C:\Users\ACER\AppData\Local\Temp\tmp0vf5f790.pdf
+2026-03-31 08:44:38,555 - INFO: Verifier results for 69cb3baa498b5a1bfd87ae51: {'text_extraction': True, 'certificate_type': 'Academic Certificate', 'detection_status': 'Uncertain', 'detection_score': 47.9, 'format_match': False, 'format_similarity': 52.4, 'certificate_status': 'Found but Weak Match', 'format_details': {'overall_similarity': 52.4, 'element_matches': {'name': 25, 'degree': 50, 'major': 40, 'university': 100, 'graduation date': 47}}, 'regulatory_check': None, 'date_fields': {'issue_date': datetime.date(2026, 3, 30), 'valid_from': None, 'valid_upto': None, 'expiry_date': None}, 'validity_status': 'Only Issue Date Found', 'authority_match': False, 'authority_details': [], 'metadata_score': 0.0, 'metadata_match': False, 'metadata_details': {}, 'identifier_found': False, 'identifier_value': None, 'identifier_valid': False, 'identifiers': {}, 'authenticity_score': 30, 'final_status': 'Invalid', 'reasons': ['Profile match uncertain', 'Regulatory not checked', 'Issuing authority not matched', 'Critical identifier missing or invalid', 'Institute metadata mismatch', 'Only issue date found'], 'recommendations': ['Confirm issuing authority label on certificate.', 'Include/verify registration or approval number.', 'Verify institute/branch/city details in certificate text.']} (duration=0.05s)
+2026-03-31 08:44:38,556 - INFO: Raw authenticity_score type=<class 'int'> value=30
+2026-03-31 08:44:38,556 - INFO: Extracted score directly: 30.0
+2026-03-31 08:44:38,557 - INFO: Using final_status from verifier: Invalid
+2026-03-31 08:44:38,630 - INFO: Updated certificate 69cb3baa498b5a1bfd87ae51 | verified=Invalid | score=30
+2026-03-31 08:44:38,631 - INFO: Removed temp file: C:\Users\ACER\AppData\Local\Temp\tmp0vf5f790.pdf
+2026-03-31 08:44:38,632 - INFO: Queuing compliance report regeneration for college CD GROUP OF INSTITUTIONS
+2026-03-31 08:44:38,650 - INFO: verify_certificate END id=69cb3baa498b5a1bfd87ae51
+2026-03-31 08:46:11,334 - WARNING: Report generation timeout for intake=660
+2026-03-31 08:46:11,335 - INFO: Compliance regeneration complete: 0/1 successful
+2026-03-31 08:46:16,318 - INFO: Compliance report regenerated: college=CD GROUP OF INSTITUTIONS intake=660
+2026-03-31 08:46:16,319 - INFO: Compliance regeneration complete: 1/1 successful
+2026-03-31 08:46:38,596 - INFO: Compliance report regenerated: college=CD GROUP OF INSTITUTIONS intake=660
+2026-03-31 08:46:38,597 - INFO: Compliance regeneration complete: 1/1 successful
+2026-03-31 08:48:45,364 - INFO: C:\Users\ACER\Downloads\Nirikshan-SahAI-main\major\institute\views.py changed, reloading.
+2026-03-31 08:59:16,338 - INFO: Starting verification of 10 certificates (fix_invalid_only=False)
+2026-03-31 08:59:16,753 - INFO: Certificate 69cb3baa498b5a1bfd87ae51 re-verified: Invalid\u2192Weak Evidence (score: 30\u219240)
+2026-03-31 08:59:17,052 - INFO: Certificate 69cb3bab498b5a1bfd87ae54 re-verified: Invalid\u2192Weak Evidence (score: 30\u219240)
+2026-03-31 08:59:17,635 - INFO: Certificate 69cb3bab498b5a1bfd87ae57 re-verified: Rejected\u2192Weak Evidence (score: 40.75\u219240)
+2026-03-31 08:59:18,124 - INFO: Certificate 69cb3bac498b5a1bfd87ae5a re-verified: Verified\u2192Weak Evidence (score: 73.5\u219240)
+2026-03-31 08:59:18,406 - INFO: Certificate 69cb3bad498b5a1bfd87ae5d re-verified: Rejected\u2192Weak Evidence (score: 69.25\u219240)
+2026-03-31 08:59:18,764 - INFO: Certificate 69cb3bae498b5a1bfd87ae60 re-verified: Rejected\u2192Weak Evidence (score: 48.25\u219240)
+2026-03-31 08:59:19,086 - INFO: Certificate 69cb3bb0498b5a1bfd87ae63 re-verified: Verified\u2192Weak Evidence (score: 79.0\u219255)
+2026-03-31 08:59:19,365 - INFO: Certificate 69cb3bb1498b5a1bfd87ae66 re-verified: Verified\u2192Weak Evidence (score: 81.25\u219255)
+2026-03-31 08:59:19,685 - INFO: Certificate 69cb3bb2498b5a1bfd87ae69 re-verified: Verified\u2192Weak Evidence (score: 72.5\u219245)
+2026-03-31 08:59:20,005 - INFO: Certificate 69cb3bb2498b5a1bfd87ae6c re-verified: Verified\u2192Weak Evidence (score: 81.25\u219255)
+2026-03-31 08:59:20,009 - INFO: Reverification complete: 10 successful, 0 failed, 5 improved
+2026-03-31 09:04:24,484 - INFO: Verifier results for 69cb3baa498b5a1bfd87ae51: {'text_extraction': True, 'certificate_type': 'Academic Certificate', 'detection_status': 'Uncertain', 'detection_score': 44.8, 'format_match': False, 'format_similarity': 52.4, 'certificate_status': 'Found but Weak Match', 'format_details': {'overall_similarity': 52.4, 'element_matches': {'name': 25, 'degree': 50, 'major': 40, 'university': 100, 'graduation date': 47}}, 'regulatory_check': None, 'date_fields': {'issue_date': datetime.date(2026, 3, 30), 'valid_from': None, 'valid_upto': None, 'expiry_date': None}, 'validity_status': 'Only Issue Date Found', 'authority_match': False, 'authority_details': [], 'metadata_score': 0.0, 'metadata_match': False, 'metadata_details': {}, 'identifier_found': False, 'identifier_value': None, 'identifier_valid': False, 'identifiers': {}, 'authenticity_score': 30, 'final_status': 'Invalid', 'reasons': ['Profile match uncertain', 'Regulatory not checked', 'Issuing authority not matched', 'Critical identifier missing or invalid', 'Institute metadata mismatch', 'Only issue date found'], 'recommendations': ['Confirm issuing authority label on certificate.', 'Include/verify registration or approval number.', 'Verify institute/branch/city details in certificate text.']} (duration=44.48s)
+2026-03-31 09:04:24,487 - INFO: Verifier results for 69cb3bab498b5a1bfd87ae54: {'text_extraction': True, 'certificate_type': 'Professional Certificate', 'detection_status': 'Uncertain', 'detection_score': 47.9, 'format_match': False, 'format_similarity': 58.75, 'certificate_status': 'Found but Weak Match', 'format_details': {'overall_similarity': 58.75, 'element_matches': {'name': 50, 'certification': 77, 'issuing body': 58, 'date': 50}}, 'regulatory_check': None, 'date_fields': {'issue_date': datetime.date(2026, 3, 30), 'valid_from': None, 'valid_upto': None, 'expiry_date': None}, 'validity_status': 'Only Issue Date Found', 'authority_match': False, 'authority_details': [], 'metadata_score': 0.0, 'metadata_match': False, 'metadata_details': {}, 'identifier_found': False, 'identifier_value': None, 'identifier_valid': False, 'identifiers': {}, 'authenticity_score': 30, 'final_status': 'Invalid', 'reasons': ['Profile match uncertain', 'Regulatory not checked', 'Issuing authority not matched', 'Critical identifier missing or invalid', 'Institute metadata mismatch', 'Only issue date found'], 'recommendations': ['Confirm issuing authority label on certificate.', 'Include/verify registration or approval number.', 'Verify institute/branch/city details in certificate text.']} (duration=4.60s)
+2026-03-31 09:04:24,488 - INFO: Extracted score from authenticity_score: 30.0
+2026-03-31 09:04:24,489 - INFO: Extracted score from authenticity_score: 30.0
+2026-03-31 09:04:24,489 - INFO: Final verified score: 30.0
+2026-03-31 09:04:24,490 - INFO: Final verified score: 30.0
+2026-03-31 09:04:24,490 - INFO: Using final_status from verifier: Invalid
+2026-03-31 09:04:24,492 - INFO: Using final_status from verifier: Invalid
+2026-03-31 09:04:24,613 - INFO: Updated certificate 69cb3baa498b5a1bfd87ae51 | verified=Invalid | score=30
+2026-03-31 09:04:24,678 - INFO: Removed temp file: C:\Users\ACER\AppData\Local\Temp\tmp15g_1fps.pdf
+2026-03-31 09:04:24,679 - INFO: Queuing compliance report regeneration for college CD GROUP OF INSTITUTIONS
+2026-03-31 09:04:24,682 - INFO: verify_certificate END id=69cb3baa498b5a1bfd87ae51
+2026-03-31 09:04:25,160 - INFO: Updated certificate 69cb3bab498b5a1bfd87ae54 | verified=Invalid | score=30
+2026-03-31 09:04:25,161 - INFO: Removed temp file: C:\Users\ACER\AppData\Local\Temp\tmpm6r2cahl.pdf
+2026-03-31 09:04:25,162 - INFO: Queuing compliance report regeneration for college CD GROUP OF INSTITUTIONS
+2026-03-31 09:04:25,165 - INFO: verify_certificate END id=69cb3bab498b5a1bfd87ae54
+2026-03-31 09:07:27,359 - WARNING: Report generation timeout for intake=660
+2026-03-31 09:07:27,364 - WARNING: Report generation timeout for intake=660
+2026-03-31 09:07:27,366 - INFO: Compliance regeneration complete: 0/1 successful
+2026-03-31 09:07:27,368 - INFO: Compliance regeneration complete: 0/1 successful
+2026-03-31 09:10:36,920 - INFO: C:\Users\ACER\Downloads\Nirikshan-SahAI-main\major\institute\views.py changed, reloading.
+2026-03-31 09:31:16,365 - INFO: Starting verification of 10 certificates (fix_invalid_only=False)
+2026-03-31 09:31:16,799 - INFO: Certificate 69cb3baa498b5a1bfd87ae51 re-verified: Invalid\u2192Weak Evidence (score: 30\u219240)
+2026-03-31 09:31:17,159 - INFO: Certificate 69cb3bab498b5a1bfd87ae54 re-verified: Invalid\u2192Weak Evidence (score: 30\u219240)
+2026-03-31 09:31:17,590 - INFO: Certificate 69cb3bab498b5a1bfd87ae57 re-verified: Weak Evidence\u2192Weak Evidence (score: 40\u219240)
+2026-03-31 09:31:18,011 - INFO: Certificate 69cb3bac498b5a1bfd87ae5a re-verified: Weak Evidence\u2192Weak Evidence (score: 40\u219240)
+2026-03-31 09:31:18,321 - INFO: Certificate 69cb3bad498b5a1bfd87ae5d re-verified: Weak Evidence\u2192Weak Evidence (score: 40\u219240)
+2026-03-31 09:31:18,675 - INFO: Certificate 69cb3bae498b5a1bfd87ae60 re-verified: Weak Evidence\u2192Weak Evidence (score: 40\u219240)
+2026-03-31 09:31:19,032 - INFO: Certificate 69cb3bb0498b5a1bfd87ae63 re-verified: Weak Evidence\u2192Weak Evidence (score: 55\u219255)
+2026-03-31 09:31:19,320 - INFO: Certificate 69cb3bb1498b5a1bfd87ae66 re-verified: Weak Evidence\u2192Weak Evidence (score: 55\u219255)
+2026-03-31 09:31:19,672 - INFO: Certificate 69cb3bb2498b5a1bfd87ae69 re-verified: Weak Evidence\u2192Weak Evidence (score: 45\u219245)
+2026-03-31 09:31:20,084 - INFO: Certificate 69cb3bb2498b5a1bfd87ae6c re-verified: Weak Evidence\u2192Weak Evidence (score: 55\u219255)
+2026-03-31 09:31:20,090 - INFO: Reverification complete: 10 successful, 0 failed, 2 improved
+2026-03-31 09:44:01,897 - INFO: Verifier results for 69cb3baa498b5a1bfd87ae51: {'text_extraction': True, 'certificate_type': 'Academic Certificate', 'detection_status': 'Uncertain', 'detection_score': 47.9, 'format_match': False, 'format_similarity': 52.4, 'certificate_status': 'Found but Weak Match', 'format_details': {'overall_similarity': 52.4, 'element_matches': {'name': 25, 'degree': 50, 'major': 40, 'university': 100, 'graduation date': 47}}, 'regulatory_check': None, 'date_fields': {'issue_date': datetime.date(2026, 3, 30), 'valid_from': None, 'valid_upto': None, 'expiry_date': None}, 'validity_status': 'Only Issue Date Found', 'authority_match': False, 'authority_details': [], 'metadata_score': 0.0, 'metadata_match': False, 'metadata_details': {}, 'identifier_found': False, 'identifier_value': None, 'identifier_valid': False, 'identifiers': {}, 'authenticity_score': 30, 'final_status': 'Invalid', 'reasons': ['Profile match uncertain', 'Regulatory not checked', 'Issuing authority not matched', 'Critical identifier missing or invalid', 'Institute metadata mismatch', 'Only issue date found'], 'recommendations': ['Confirm issuing authority label on certificate.', 'Include/verify registration or approval number.', 'Verify institute/branch/city details in certificate text.']} (duration=5.63s)
+2026-03-31 09:44:01,899 - INFO: Extracted score from authenticity_score: 30.0
+2026-03-31 09:44:01,899 - INFO: Final verified score: 30.0
+2026-03-31 09:44:01,900 - INFO: Using final_status from verifier: Invalid
+2026-03-31 09:44:02,039 - INFO: Updated certificate 69cb3baa498b5a1bfd87ae51 | verified=Invalid | score=30
+2026-03-31 09:44:02,040 - INFO: Removed temp file: C:\Users\ACER\AppData\Local\Temp\tmpz_zsbnie.pdf
+2026-03-31 09:44:02,041 - INFO: Queuing compliance report regeneration for college CD GROUP OF INSTITUTIONS
+2026-03-31 09:44:02,058 - INFO: verify_certificate END id=69cb3baa498b5a1bfd87ae51
+2026-03-31 09:44:52,607 - INFO: Compliance report regenerated: college=CD GROUP OF INSTITUTIONS intake=660
+2026-03-31 09:44:52,608 - INFO: Compliance regeneration complete: 1/1 successful
+2026-03-31 09:49:34,822 - INFO: verify_certificate START id=69cb3bab498b5a1bfd87ae54 user=inspector2
+2026-03-31 09:49:35,032 - INFO: File object type: <class 'mongoengine.fields.GridFSProxy'>
+2026-03-31 09:49:35,219 - INFO: Read 4926 bytes using file.read()
+2026-03-31 09:49:35,221 - INFO: Saved temp file C:\Users\ACER\AppData\Local\Temp\tmp4gr8n2x6.pdf (size=4926)
+2026-03-31 09:49:35,222 - INFO: Running CertificateVerifier.process_certificate for C:\Users\ACER\AppData\Local\Temp\tmp4gr8n2x6.pdf
+2026-03-31 09:49:35,337 - INFO: Verifier results for 69cb3bab498b5a1bfd87ae54: {'text_extraction': True, 'certificate_type': 'Professional Certificate', 'detection_status': 'Uncertain', 'detection_score': 44.8, 'format_match': False, 'format_similarity': 58.75, 'certificate_status': 'Found but Weak Match', 'format_details': {'overall_similarity': 58.75, 'element_matches': {'name': 50, 'certification': 77, 'issuing body': 58, 'date': 50}}, 'regulatory_check': None, 'date_fields': {'issue_date': datetime.date(2026, 3, 30), 'valid_from': None, 'valid_upto': None, 'expiry_date': None}, 'validity_status': 'Only Issue Date Found', 'authority_match': False, 'authority_details': [], 'metadata_score': 0.0, 'metadata_match': False, 'metadata_details': {}, 'identifier_found': False, 'identifier_value': None, 'identifier_valid': False, 'identifiers': {}, 'authenticity_score': 30, 'final_status': 'Invalid', 'reasons': ['Profile match uncertain', 'Regulatory not checked', 'Issuing authority not matched', 'Critical identifier missing or invalid', 'Institute metadata mismatch', 'Only issue date found'], 'recommendations': ['Confirm issuing authority label on certificate.', 'Include/verify registration or approval number.', 'Verify institute/branch/city details in certificate text.']} (duration=0.11s)
+2026-03-31 09:49:35,338 - INFO: Extracted score from authenticity_score: 30.0
+2026-03-31 09:49:35,338 - INFO: Final verified score: 30.0
+2026-03-31 09:49:35,338 - INFO: Using final_status from verifier: Invalid
+2026-03-31 09:49:35,470 - INFO: Updated certificate 69cb3bab498b5a1bfd87ae54 | verified=Invalid | score=30
+2026-03-31 09:49:35,471 - INFO: Removed temp file: C:\Users\ACER\AppData\Local\Temp\tmp4gr8n2x6.pdf
+2026-03-31 09:49:35,471 - INFO: Queuing compliance report regeneration for college CD GROUP OF INSTITUTIONS
+2026-03-31 09:49:35,473 - INFO: verify_certificate END id=69cb3bab498b5a1bfd87ae54
+2026-03-31 09:49:57,234 - WARNING: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2026-03-31 09:50:31,696 - INFO: verify_certificate START id=69cb3baa498b5a1bfd87ae51 user=inspector2
+2026-03-31 09:50:31,855 - INFO: File object type: <class 'mongoengine.fields.GridFSProxy'>
+2026-03-31 09:50:31,939 - INFO: Read 5203 bytes using file.read()
+2026-03-31 09:50:31,940 - INFO: Saved temp file C:\Users\ACER\AppData\Local\Temp\tmppacuzffo.pdf (size=5203)
+2026-03-31 09:50:31,940 - INFO: Running CertificateVerifier.process_certificate for C:\Users\ACER\AppData\Local\Temp\tmppacuzffo.pdf
+2026-03-31 09:50:32,360 - INFO: Verifier results for 69cb3baa498b5a1bfd87ae51: {'text_extraction': True, 'certificate_type': 'Academic Certificate', 'detection_status': 'Uncertain', 'detection_score': 47.9, 'format_match': False, 'format_similarity': 52.4, 'certificate_status': 'Found but Weak Match', 'format_details': {'overall_similarity': 52.4, 'element_matches': {'name': 25, 'degree': 50, 'major': 40, 'university': 100, 'graduation date': 47}}, 'regulatory_check': None, 'date_fields': {'issue_date': datetime.date(2026, 3, 30), 'valid_from': None, 'valid_upto': None, 'expiry_date': None}, 'validity_status': 'Only Issue Date Found', 'authority_match': False, 'authority_details': [], 'metadata_score': 0.0, 'metadata_match': False, 'metadata_details': {}, 'identifier_found': False, 'identifier_value': None, 'identifier_valid': False, 'identifiers': {}, 'authenticity_score': 30, 'final_status': 'Invalid', 'reasons': ['Profile match uncertain', 'Regulatory not checked', 'Issuing authority not matched', 'Critical identifier missing or invalid', 'Institute metadata mismatch', 'Only issue date found'], 'recommendations': ['Confirm issuing authority label on certificate.', 'Include/verify registration or approval number.', 'Verify institute/branch/city details in certificate text.']} (duration=0.42s)
+2026-03-31 09:50:32,361 - INFO: Extracted score from authenticity_score: 30.0
+2026-03-31 09:50:32,361 - INFO: Final verified score: 30.0
+2026-03-31 09:50:32,362 - INFO: Using final_status from verifier: Invalid
+2026-03-31 09:50:32,456 - INFO: Updated certificate 69cb3baa498b5a1bfd87ae51 | verified=Invalid | score=30
+2026-03-31 09:50:32,458 - INFO: Removed temp file: C:\Users\ACER\AppData\Local\Temp\tmppacuzffo.pdf
+2026-03-31 09:50:32,459 - INFO: Queuing compliance report regeneration for college CD GROUP OF INSTITUTIONS
+2026-03-31 09:50:32,461 - INFO: verify_certificate END id=69cb3baa498b5a1bfd87ae51
+2026-03-31 09:50:37,753 - INFO: Compliance report regenerated: college=CD GROUP OF INSTITUTIONS intake=660
+2026-03-31 09:50:37,785 - INFO: Compliance regeneration complete: 1/1 successful
+2026-03-31 09:50:46,460 - INFO: verify_certificate START id=69cb3bab498b5a1bfd87ae54 user=inspector2
+2026-03-31 09:50:46,704 - INFO: File object type: <class 'mongoengine.fields.GridFSProxy'>
+2026-03-31 09:50:46,820 - INFO: Read 4926 bytes using file.read()
+2026-03-31 09:50:46,821 - INFO: Saved temp file C:\Users\ACER\AppData\Local\Temp\tmpgqj5tucx.pdf (size=4926)
+2026-03-31 09:50:46,822 - INFO: Running CertificateVerifier.process_certificate for C:\Users\ACER\AppData\Local\Temp\tmpgqj5tucx.pdf
+2026-03-31 09:50:47,080 - INFO: Verifier results for 69cb3bab498b5a1bfd87ae54: {'text_extraction': True, 'certificate_type': 'Professional Certificate', 'detection_status': 'Uncertain', 'detection_score': 44.8, 'format_match': False, 'format_similarity': 58.75, 'certificate_status': 'Found but Weak Match', 'format_details': {'overall_similarity': 58.75, 'element_matches': {'name': 50, 'certification': 77, 'issuing body': 58, 'date': 50}}, 'regulatory_check': None, 'date_fields': {'issue_date': datetime.date(2026, 3, 30), 'valid_from': None, 'valid_upto': None, 'expiry_date': None}, 'validity_status': 'Only Issue Date Found', 'authority_match': False, 'authority_details': [], 'metadata_score': 0.0, 'metadata_match': False, 'metadata_details': {}, 'identifier_found': False, 'identifier_value': None, 'identifier_valid': False, 'identifiers': {}, 'authenticity_score': 30, 'final_status': 'Invalid', 'reasons': ['Profile match uncertain', 'Regulatory not checked', 'Issuing authority not matched', 'Critical identifier missing or invalid', 'Institute metadata mismatch', 'Only issue date found'], 'recommendations': ['Confirm issuing authority label on certificate.', 'Include/verify registration or approval number.', 'Verify institute/branch/city details in certificate text.']} (duration=0.26s)
+2026-03-31 09:50:47,081 - INFO: Extracted score from authenticity_score: 30.0
+2026-03-31 09:50:47,081 - INFO: Final verified score: 30.0
+2026-03-31 09:50:47,082 - INFO: Using final_status from verifier: Invalid
+2026-03-31 09:50:47,370 - INFO: Updated certificate 69cb3bab498b5a1bfd87ae54 | verified=Invalid | score=30
+2026-03-31 09:50:47,371 - INFO: Removed temp file: C:\Users\ACER\AppData\Local\Temp\tmpgqj5tucx.pdf
+2026-03-31 09:50:47,372 - INFO: Queuing compliance report regeneration for college CD GROUP OF INSTITUTIONS
+2026-03-31 09:50:47,374 - INFO: verify_certificate END id=69cb3bab498b5a1bfd87ae54
+2026-03-31 09:51:00,371 - WARNING: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2026-03-31 09:51:07,851 - INFO: Compliance report regenerated: college=CD GROUP OF INSTITUTIONS intake=660
+2026-03-31 09:51:07,851 - INFO: Compliance regeneration complete: 1/1 successful
+2026-03-31 09:51:11,377 - INFO: verify_certificate START id=69cb3bab498b5a1bfd87ae54 user=inspector2
+2026-03-31 09:51:11,618 - INFO: File object type: <class 'mongoengine.fields.GridFSProxy'>
+2026-03-31 09:51:11,920 - INFO: Read 4926 bytes using file.read()
+2026-03-31 09:51:11,925 - INFO: Saved temp file C:\Users\ACER\AppData\Local\Temp\tmp02ss15xj.pdf (size=4926)
+2026-03-31 09:51:11,927 - INFO: Running CertificateVerifier.process_certificate for C:\Users\ACER\AppData\Local\Temp\tmp02ss15xj.pdf
+2026-03-31 09:51:12,485 - INFO: Verifier results for 69cb3bab498b5a1bfd87ae54: {'text_extraction': True, 'certificate_type': 'Professional Certificate', 'detection_status': 'Uncertain', 'detection_score': 41.6, 'format_match': False, 'format_similarity': 58.75, 'certificate_status': 'Found but Weak Match', 'format_details': {'overall_similarity': 58.75, 'element_matches': {'name': 50, 'certification': 77, 'issuing body': 58, 'date': 50}}, 'regulatory_check': None, 'date_fields': {'issue_date': datetime.date(2026, 3, 30), 'valid_from': None, 'valid_upto': None, 'expiry_date': None}, 'validity_status': 'Only Issue Date Found', 'authority_match': False, 'authority_details': [], 'metadata_score': 0.0, 'metadata_match': False, 'metadata_details': {}, 'identifier_found': False, 'identifier_value': None, 'identifier_valid': False, 'identifiers': {}, 'authenticity_score': 30, 'final_status': 'Invalid', 'reasons': ['Profile match uncertain', 'Regulatory not checked', 'Issuing authority not matched', 'Critical identifier missing or invalid', 'Institute metadata mismatch', 'Only issue date found'], 'recommendations': ['Confirm issuing authority label on certificate.', 'Include/verify registration or approval number.', 'Verify institute/branch/city details in certificate text.']} (duration=0.56s)
+2026-03-31 09:51:12,485 - INFO: Extracted score from authenticity_score: 30.0
+2026-03-31 09:51:12,486 - INFO: Final verified score: 30.0
+2026-03-31 09:51:12,487 - INFO: Using final_status from verifier: Invalid
+2026-03-31 09:51:12,618 - INFO: Updated certificate 69cb3bab498b5a1bfd87ae54 | verified=Invalid | score=30
+2026-03-31 09:51:12,620 - INFO: Removed temp file: C:\Users\ACER\AppData\Local\Temp\tmp02ss15xj.pdf
+2026-03-31 09:51:12,620 - INFO: Queuing compliance report regeneration for college CD GROUP OF INSTITUTIONS
+2026-03-31 09:51:12,625 - INFO: verify_certificate END id=69cb3bab498b5a1bfd87ae54
+2026-03-31 09:53:49,979 - WARNING: Report generation timeout for intake=660
+2026-03-31 09:53:49,980 - INFO: Compliance regeneration complete: 0/1 successful
+2026-03-31 09:54:14,803 - WARNING: Report generation timeout for intake=660
+2026-03-31 09:54:14,874 - INFO: Compliance regeneration complete: 0/1 successful
+2026-03-31 10:04:07,192 - INFO: C:\Users\ACER\Downloads\Nirikshan-SahAI-main\major\inspector\views.py changed, reloading.

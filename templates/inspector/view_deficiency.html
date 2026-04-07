@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<head>
+    <title>Deficiency Report</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/inspector/report2.css' %}">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navdiv">
+            <div class="logo">
+                <a href="{% url 'homepage' %}">
+                    <img alt="inspX.ai Logo" height="50" src="{% static 'images/logo.png' %}"/>
+                </a>
+            </div>
+            <ul>
+                <li><a href="{% url 'homepage' %}">Home</a></li>
+                <li><a href="{% url 'options' %}">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="dashboard main-content">
+        <div class="container">
+            <h1 class="text-2xl md:text-3xl font-bold text-blue-900 text-center mb-8">Deficiency Report</h1>
+            
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <h2 class="text-xl font-semibold mb-4">Areas Where Institution Lacks AICTE Norms</h2>
+                
+                {% if error %}
+                    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+                        {{ error }}
+                    </div>
+                {% else %}
+                    <div class="mb-4">
+                        <p><strong>College:</strong> {{ college }}</p>
+                        <p><strong>Branch:</strong> {{ deficiency.branch }}</p>
+                    </div>
+                    
+                    <p class="mb-4">This report highlights deficiencies and areas requiring improvement to meet AICTE standards.</p>
+                    
+                    <!-- Placeholder for deficiency data -->
+                    <div class="space-y-4">
+                        <div class="border-l-4 border-red-500 pl-4">
+                            <h3 class="font-semibold text-red-800">Critical Deficiencies</h3>
+                            <ul class="list-disc list-inside mt-2">
+                                <li>Infrastructure: Classroom size below minimum requirements</li>
+                                <li>Faculty: Shortage of qualified teaching staff</li>
+                                <li>Laboratory: Equipment not up to standards</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="border-l-4 border-yellow-500 pl-4">
+                            <h3 class="font-semibold text-yellow-800">Minor Issues</h3>
+                            <ul class="list-disc list-inside mt-2">
+                                <li>Documentation: Some certificates pending verification</li>
+                                <li>Parking: Insufficient space for vehicles</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="border-l-4 border-green-500 pl-4">
+                            <h3 class="font-semibold text-green-800">Recommendations</h3>
+                            <ul class="list-disc list-inside mt-2">
+                                <li>Upgrade classroom facilities within 6 months</li>
+                                <li>Hire additional qualified faculty</li>
+                                <li>Update laboratory equipment</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    {% if deficiency.file %}
+                        <div class="mt-6">
+                            <a href="{% url 'download_deficiency_report' deficiency.id %}" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 inline-block">
+                                <i class="fas fa-download mr-2"></i>Download Full Report
+                            </a>
+                        </div>
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    </main>
+
+    <script>
+        window.addEventListener('load', function () {
+            const mainContent = document.querySelector('.dashboard');
+            mainContent.classList.add('fade-in');
+        });
+    </script>
+</body>
+
+{% endblock %}

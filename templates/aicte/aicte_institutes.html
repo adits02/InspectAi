@@ -1,0 +1,604 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<style>
+    :root {
+        --primary-color: #1e3a8a;
+        --accent-color: #f59e0b;
+        --surface: #ffffff;
+        --surface-soft: #f8fafc;
+        --border-color: rgba(30, 58, 138, 0.14);
+        --text-color: #111827;
+        --text-muted: #64748b;
+        --shadow: 0 28px 80px rgba(15, 23, 42, 0.14);
+    }
+
+    body {
+        background: linear-gradient(135deg, #eff6ff 0%, #f8fafc 100%);
+        color: var(--text-color);
+    }
+
+    .navbar {
+        background: rgba(255,255,255,0.96);
+        border: 1px solid rgba(30,58,138,0.1);
+        border-radius: 24px;
+        padding: 1rem 1.5rem;
+        box-shadow: var(--shadow);
+    }
+
+    .navdiv {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+
+    .navdiv .logo img {
+        max-height: 52px;
+    }
+
+    .navdiv ul {
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .navdiv ul li a,
+    .profile-name {
+        color: var(--text-color);
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    .profile-container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .profile-button {
+        display: flex;
+        align-items: center;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+    }
+
+    .dropdown-arrow {
+        fill: var(--text-color);
+        transition: transform 0.2s ease;
+    }
+
+    .profile-dropdown {
+        display: none;
+        position: absolute;
+        top: calc(100% + 0.65rem);
+        right: 0;
+        background: #1e293b;
+        border-radius: 18px;
+        box-shadow: 0 18px 50px rgba(15, 23, 42, 0.18);
+        overflow: hidden;
+        min-width: 180px;
+        z-index: 1000;
+    }
+
+    .profile-dropdown a {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.9rem 1rem;
+        color: #f8fafc;
+        font-weight: 500;
+        transition: background 0.2s ease;
+    }
+
+    .profile-dropdown a:hover {
+        background: rgba(255, 255, 255, 0.08);
+    }
+
+    .profile-dropdown.show {
+        display: block;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem;
+    }
+
+    .page-heading {
+        margin-bottom: 1.75rem;
+        text-align: center;
+    }
+
+    .page-heading h1 {
+        font-size: clamp(2rem, 2.5vw, 3rem);
+        color: var(--primary-color);
+        margin: 0;
+    }
+
+    .search-filter {
+        display: grid;
+        grid-template-columns: 1fr minmax(180px, 240px);
+        gap: 1rem;
+        background: var(--surface);
+        padding: 1.5rem;
+        border-radius: 24px;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
+        align-items: center;
+        margin-bottom: 2rem;
+    }
+
+    .search-filter input,
+    .search-filter select {
+        width: 100%;
+        padding: 1rem 1.1rem;
+        border-radius: 16px;
+        border: 1px solid rgba(15, 23, 42, 0.12);
+        background: var(--surface-soft);
+        color: var(--text-color);
+        font-size: 0.95rem;
+    }
+
+    .institutes-table {
+        width: 100%;
+        border-collapse: collapse;
+        border-radius: 24px;
+        overflow: hidden;
+        background: var(--surface);
+        box-shadow: var(--shadow);
+    }
+
+    .institutes-table th,
+    .institutes-table td {
+        padding: 1.25rem 1rem;
+        border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+    }
+
+    .institutes-table th {
+        background: rgba(30, 58, 138, 0.12);
+        color: var(--primary-color);
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+    }
+
+    .institutes-table td {
+        color: var(--text-muted);
+    }
+
+    .action-buttons {
+        display: flex;
+        gap: 0.85rem;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+    .btn {
+        padding: 0.85rem 1.15rem;
+        border: none;
+        border-radius: 999px;
+        cursor: pointer;
+        font-size: 0.95rem;
+        font-weight: 700;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-view {
+        background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+        color: #ffffff;
+        box-shadow: 0 16px 32px rgba(30, 58, 138, 0.2);
+    }
+
+    .btn-edit {
+        background: #0f172a;
+        color: #ffffff;
+    }
+
+    .btn:hover {
+        transform: translateY(-2px);
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(15, 23, 42, 0.55);
+        z-index: 1000;
+        align-items: center;
+        justify-content: center;
+        padding: 1.5rem;
+    }
+
+    .modal-content {
+        background: var(--surface);
+        border-radius: 24px;
+        width: min(100%, 920px);
+        padding: 2rem;
+        box-shadow: var(--shadow);
+        position: relative;
+    }
+
+    .close-button {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        font-size: 1.4rem;
+        color: var(--text-muted);
+        cursor: pointer;
+    }
+
+    .modal-content h2 {
+        color: var(--primary-color);
+        margin-bottom: 1.25rem;
+        text-align: center;
+    }
+
+    .edit-form {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.5rem;
+    }
+
+    .form-group {
+        display: grid;
+        gap: 0.75rem;
+    }
+
+    .form-group label {
+        color: var(--text-color);
+        font-weight: 600;
+    }
+
+    .form-group input,
+    .form-group select {
+        width: 100%;
+        padding: 1rem;
+        border-radius: 16px;
+        border: 1px solid rgba(15, 23, 42, 0.12);
+        background: var(--surface-soft);
+        color: var(--text-color);
+    }
+
+    .form-actions {
+        grid-column: 1 / -1;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 1.35rem;
+    }
+
+    .btn-save {
+        padding: 0.95rem 1.75rem;
+        border-radius: 999px;
+        background: var(--primary-color);
+        color: #ffffff;
+        font-weight: 700;
+    }
+
+    .btn-save:hover {
+        opacity: 0.95;
+    }
+
+    @media (max-width: 900px) {
+        .search-filter {
+            grid-template-columns: 1fr;
+        }
+        .edit-form {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (max-width: 640px) {
+        .navdiv ul {
+            display: none;
+        }
+        .navdiv .hamburger {
+            display: flex;
+        }
+    }
+</style>
+ </head>
+ <body class="bg-[#BED7DC]">
+   <nav class="navbar">
+      <div class="navdiv">
+        <div class="logo">
+          <a href="{% url 'homepage' %}">
+            <img alt="InspectAi Logo" height="50" src="{% static 'images/logo.png' %}" style="padding: 5px;" />
+          </a>
+        </div>
+        <ul>
+         <li><a href="{% url 'homepage' %}">Home</a></li>
+         <li><a href="{% url 'aictemain' %}">Admin Controls</a></li>
+          <li class="profile-container">
+            <button class="profile-button" onclick="toggleDropdown()">
+              
+              <span class="profile-name">Admin</span>
+              <svg class="dropdown-arrow" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+            </button>
+            <div id="profileDropdown" class="profile-dropdown">
+              <a href="/logout">
+                <svg class="profile-dropdown-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                  <polyline points="16 17 21 12 16 7"></polyline>
+                  <line x1="21" y1="12" x2="9" y2="12"></line>
+                </svg>
+                Logout
+              </a>
+            </div>
+          </li>
+          
+          
+        </ul>
+        
+    </nav>
+
+    
+ <script>
+   function toggleDropdown() {
+     const dropdown = document.getElementById('profileDropdown');
+     dropdown.classList.toggle('show');
+   }
+ 
+   document.addEventListener('click', function (event) {
+     const profileContainer = document.querySelector('.profile-container');
+     const dropdown = document.getElementById('profileDropdown');
+     if (!profileContainer.contains(event.target)) {
+       dropdown.classList.remove('show');
+     }
+   });
+ </script>
+    
+<div class="container">
+    <h1 id="registered-institutes" class="text-2xl md:text-3xl font-bold text-center">
+        Registered Institutes
+    </h1>
+
+    <div class="search-filter">
+        <input 
+            type="text" 
+            id="searchInput" 
+            placeholder="Search institutes..."
+        >
+        <select id="stateFilter">
+            <option value=""  placeholder="State">All States</option>
+        </select>
+    </div>
+
+    <table class="institutes-table">
+        <thead>
+            <tr>
+                <th>Institute Name</th>
+                <th>State</th>
+                <th>City</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="institutesTableBody">
+            {% for institute in institutes %}
+            <tr>
+                <td>{{ institute.college_name }}</td>
+                <td>{{ institute.state }}</td>
+                <td>{{ institute.city }}</td>
+                <td class="action-buttons">
+                    <button 
+                        class="btn btn-view" 
+                        onclick="openViewModal('{{ institute.college_name }}', '{{ institute.id }}', '{{ institute.email }}', '{{ institute.pin_id }}', '{{ institute.state }}', '{{ institute.city }}')"
+                    >
+                        View
+                    </button>
+                    <button class="btn btn-edit edit-institute-btn" data-id="{{ institute.id }}" 
+                        data-college-name="{{ institute.college_name }}" 
+                        data-college-code="{{ institute.college_id }}" 
+                        data-email="{{ institute.email }}" 
+                        data-pin-id="{{ institute.pin_id }}" 
+                        data-state="{{ institute.state }}" 
+                        data-city="{{ institute.city }}">
+                        Edit
+                    </button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div id="view-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal('view-modal')">&times;</span>
+            <h2>Institute Details</h2>
+            <div id="modal-details">
+                <p>
+                    <strong>College Name:</strong> 
+                    <span id="view-college-name"></span>
+                </p>
+                <p>
+                    <strong>College ID:</strong> 
+                    <span id="view-college-id"></span>
+                </p>
+                <p>
+                    <strong>Email:</strong> 
+                    <span id="view-email"></span>
+                </p>
+                <p>
+                    <strong>PIN ID:</strong> 
+                    <span id="view-pin-id"></span>
+                </p>
+                <p>
+                    <strong>State:</strong> 
+                    <span id="view-state"></span>
+                </p>
+                <p>
+                    <strong>City:</strong> 
+                    <span id="view-city"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div id="edit-institute-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal('edit-institute-modal')">&times;</span>
+            <h2>Edit Institute</h2>
+            <form class="edit-form" action="" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="edit-college-name">College Name</label>
+                    <input type="text" id="edit-college-name" name="college_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-college-code">College Code</label>
+                    <input type="text" id="edit-college-code" name="college_code" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-email">Email</label>
+                    <input type="email" id="edit-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-pin">PIN</label>
+                    <input type="text" id="edit-pin" name="pin_id" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-state">State</label>
+                    <input type="text" id="edit-state" name="state" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-city">City</label>
+                    <input type="text" id="edit-city" name="city" required>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-view" onclick="closeModal('edit-institute-modal')">Cancel</button>
+                    <button type="submit" class="btn btn-edit">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openViewModal(name, id, email, pinId, state, city) {
+        document.getElementById('view-college-name').textContent = name;
+        document.getElementById('view-college-id').textContent = id;
+        document.getElementById('view-email').textContent = email;
+        document.getElementById('view-pin-id').textContent = pinId;
+        document.getElementById('view-state').textContent = state;
+        document.getElementById('view-city').textContent = city;
+
+        document.getElementById('view-modal').style.display = 'flex';
+    }
+
+    {% comment %} function openEditModal(name, id, email, pinId, state, city, status) {
+        document.getElementById('edit-college-name').value = name;
+        document.getElementById('edit-college-code').value = id;
+        document.getElementById('edit-email').value = email;
+        document.getElementById('edit-pin').value = pinId;
+        document.getElementById('edit-state').value = state;
+        document.getElementById('edit-city').value = city;
+        document.getElementById('edit-approved-status').value = status;
+
+        document.getElementById('edit-institute-modal').style.display = 'flex';
+    } {% endcomment %}
+
+
+    // dont change any of the content below
+    document.addEventListener("DOMContentLoaded", function () {
+        const modal = document.getElementById("edit-institute-modal");
+        const closeButton = modal.querySelector(".close-button");
+        const collegeNameInput = document.getElementById("edit-college-name");
+        const collegeCodeInput = document.getElementById("edit-college-code");
+        const emailInput = document.getElementById("edit-email");
+        const pinIdInput = document.getElementById("edit-pin");
+        const stateInput = document.getElementById("edit-state");
+        const cityInput = document.getElementById("edit-city");
+        const editForm = modal.querySelector("form");
+    
+        document.querySelectorAll(".edit-institute-btn").forEach(button => {
+            button.addEventListener("click", function () {
+                const instituteId = this.dataset.id;
+                const collegeName = this.dataset.collegeName;
+                const collegeCode = this.dataset.collegeCode;
+                const email = this.dataset.email;
+                const pinId = this.dataset.pinId;
+                const state = this.dataset.state;
+                const city = this.dataset.city;
+    
+                // Populate modal inputs
+                collegeNameInput.value = collegeName;
+                collegeCodeInput.value = collegeCode;
+                emailInput.value = email;
+                pinIdInput.value = pinId;
+                stateInput.value = state;
+                cityInput.value = city;
+    
+                // Update form action
+                editForm.action = `/institutes/${instituteId}/update/`;
+    
+                // Show modal
+                modal.style.display = "flex";
+            });
+        });
+    
+        closeButton.addEventListener("click", () => {
+            modal.style.display = "none";
+        });
+    });
+
+    function closeModal(modalId) {
+        document.getElementById(modalId).style.display = 'none';
+    }
+
+    document.getElementById('searchInput').addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        const rows = document.querySelectorAll('#institutesTableBody tr');
+
+        rows.forEach(row => {
+            const cells = row.getElementsByTagName('td');
+            const shouldShow = Array.from(cells).some(cell => 
+                cell.textContent.toLowerCase().includes(searchTerm)
+            );
+            row.style.display = shouldShow ? '' : 'none';
+        });
+    });
+
+    document.getElementById('stateFilter').addEventListener('change', filterTable);
+
+    function filterTable() {
+        const stateFilter = document.getElementById('stateFilter').value;
+        const rows = document.querySelectorAll('#institutesTableBody tr');
+
+        rows.forEach(row => {
+            const stateCell = row.cells[1];
+
+            const stateMatch = stateFilter === '' || stateCell.textContent === stateFilter;
+
+            row.style.display = (stateMatch) ? '' : 'none';
+        });
+    }
+
+    function populateStateFilter() {
+        const states = new Set();
+        const rows = document.querySelectorAll('#institutesTableBody tr');
+        const stateFilter = document.getElementById('stateFilter');
+
+        rows.forEach(row => {
+            states.add(row.cells[1].textContent);
+        });
+
+        states.forEach(state => {
+            const option = document.createElement('option');
+            option.value = state;
+            option.textContent = state;
+            stateFilter.appendChild(option);
+        });
+    }
+
+    populateStateFilter();
+</script>
+{% endblock %}

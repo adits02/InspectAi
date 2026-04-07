@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Inspector Inspection Requests</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#BED7DC]">
+  <div class="container mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold text-center text-blue-900 mb-6">Assigned Inspection Requests</h1>
+
+    {% if requests %}
+      <div class="overflow-x-auto bg-white rounded-lg shadow-md">
+        <table class="min-w-full text-left">
+          <thead class="bg-blue-600 text-white">
+            <tr>
+              <th class="px-4 py-2 text-sm">College</th>
+              <th class="px-4 py-2 text-sm">Status</th>
+              <th class="px-4 py-2 text-sm">Requested</th>
+              <th class="px-4 py-2 text-sm">Scheduled</th>
+              <th class="px-4 py-2 text-sm">Inspector Report</th>
+              <th class="px-4 py-2 text-sm">Actions</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200">
+            {% for req in requests %}
+              <tr class="hover:bg-gray-100">
+                <td class="px-4 py-2">{{ req.college_name }}</td>
+                <td class="px-4 py-2">{{ req.status }}</td>
+                <td class="px-4 py-2">{{ req.requested_date|date:'Y-m-d' }}</td>
+                <td class="px-4 py-2">{{ req.scheduled_date|default:'-' }}</td>
+                <td class="px-4 py-2 truncate max-w-xs" title="{{ req.inspector_report }}">{{ req.inspector_report|default:'(No report yet)' }}</td>
+                <td class="px-4 py-2">
+                  <a href="{% url 'submit_inspection_report' req.id %}" class="text-blue-600 hover:text-blue-900">Submit / Edit Report</a><br>
+                  {% if req.inspector_report_file %}
+                    <a href="{% url 'download_inspection_report' req.id %}" class="text-green-600 hover:text-green-900">Download File</a>
+                  {% endif %}
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% else %}
+      <div class="bg-white p-8 rounded-lg shadow-md text-center">
+        <p class="text-gray-600">No assigned inspection requests at the moment.</p>
+      </div>
+    {% endif %}
+
+    <div class="mt-6 text-center">
+      <a href="{% url 'view_reports' %}" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">Back to dashboard</a>
+    </div>
+  </div>
+</body>
+{% endblock %}

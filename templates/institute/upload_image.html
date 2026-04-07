@@ -1,0 +1,182 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Upload Dashboard{% endblock %}
+{% block extra_head %}
+<style>
+    .upload-dashboard {
+        padding: 2rem 0;
+    }
+
+    .dashboard-title {
+        text-align: center;
+        margin-bottom: 3rem;
+        font-size: 2.5rem;
+        color: #1e3a8a;
+    }
+
+    .upload-card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    .upload-card {
+        background: #ffffff;
+        border: 1px solid rgba(30, 58, 138, 0.12);
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba(15, 23, 42, 0.12);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-decoration: none;
+        color: inherit;
+        display: block;
+    }
+
+    .upload-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 25px 80px rgba(15, 23, 42, 0.18);
+    }
+
+    .card-image {
+        width: 100%;
+        height: 200px;
+        background-size: cover;
+        background-position: center;
+        transition: transform 0.3s ease;
+    }
+
+    .upload-card:hover .card-image {
+        transform: scale(1.05);
+    }
+
+    .card-content {
+        padding: 1.5rem;
+        text-align: center;
+    }
+
+    .card-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #1e3a8a;
+        margin-bottom: 0.5rem;
+    }
+
+    .card-description {
+        color: #64748b;
+        margin-bottom: 1rem;
+        line-height: 1.6;
+    }
+
+    .upload-count {
+        display: inline-block;
+        padding: 0.25rem 0.75rem;
+        border-radius: 999px;
+        font-size: 0.875rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    .upload-count.uploaded {
+        background: rgba(34, 197, 94, 0.1);
+        color: #16a34a;
+    }
+
+    .upload-count.none {
+        background: rgba(156, 163, 175, 0.1);
+        color: #6b7280;
+    }
+</style>
+{% endblock %}
+{% block content %}
+<div class="aicte-page">
+    <div class="page-header">
+        <span class="eyebrow">InspectAi</span>
+        <h1>Upload Dashboard</h1>
+        <p class="page-description">Upload images for different facilities to ensure compliance with AICTE inspection standards.</p>
+    </div>
+
+    <div class="upload-dashboard">
+        <div class="upload-card-grid">
+            <a href="{% url 'classroom_upload' %}" class="upload-card">
+                <div class="card-image" style="background-image: url('{% static 'images/classroom.jpg' %}');"></div>
+                <div class="card-content">
+                    <h3 class="card-title">Classrooms</h3>
+                    <p class="card-description">Upload various pictures of classrooms</p>
+                    {% if existing_images.classroom > 0 %}
+                        <span class="upload-count uploaded">({{ existing_images.classroom }} uploaded)</span>
+                    {% else %}
+                        <span class="upload-count none">(0 uploaded)</span>
+                    {% endif %}
+                </div>
+            </a>
+
+            <a href="{% url 'lab_upload' %}" class="upload-card">
+                <div class="card-image" style="background-image: url('{% static 'images/lab.jpeg' %}');"></div>
+                <div class="card-content">
+                    <h3 class="card-title">Labs</h3>
+                    <p class="card-description">Upload various pictures of labs</p>
+                    {% if existing_images.lab > 0 %}
+                        <span class="upload-count uploaded">({{ existing_images.lab }} uploaded)</span>
+                    {% else %}
+                        <span class="upload-count none">(0 uploaded)</span>
+                    {% endif %}
+                </div>
+            </a>
+
+            <a href="{% url 'canteen_upload' %}" class="upload-card">
+                <div class="card-image" style="background-image: url('{% static 'images/canteen.jpeg' %}');"></div>
+                <div class="card-content">
+                    <h3 class="card-title">Canteen</h3>
+                    <p class="card-description">Upload various pictures of the canteen</p>
+                    {% if existing_images.canteen > 0 %}
+                        <span class="upload-count uploaded">({{ existing_images.canteen }} uploaded)</span>
+                    {% else %}
+                        <span class="upload-count none">(0 uploaded)</span>
+                    {% endif %}
+                </div>
+            </a>
+
+            <a href="{% url 'pwd_upload' %}" class="upload-card">
+                <div class="card-image" style="background-image: url('{% static 'images/pwd.png' %}');"></div>
+                <div class="card-content">
+                    <h3 class="card-title">PWD Facilities</h3>
+                    <p class="card-description">Upload various pictures of PWD facilities</p>
+                    {% if existing_images.pwd > 0 %}
+                        <span class="upload-count uploaded">({{ existing_images.pwd }} uploaded)</span>
+                    {% else %}
+                        <span class="upload-count none">(0 uploaded)</span>
+                    {% endif %}
+                </div>
+            </a>
+
+            <a href="{% url 'parking_upload' %}" class="upload-card">
+                <div class="card-image" style="background-image: url('{% static 'images/parking.jpg' %}');"></div>
+                <div class="card-content">
+                    <h3 class="card-title">Parking</h3>
+                    <p class="card-description">Upload various pictures of parking</p>
+                    {% if existing_images.parking > 0 %}
+                        <span class="upload-count uploaded">({{ existing_images.parking }} uploaded)</span>
+                    {% else %}
+                        <span class="upload-count none">(0 uploaded)</span>
+                    {% endif %}
+                </div>
+            </a>
+
+            <a href="{% url 'washroom_upload' %}" class="upload-card">
+                <div class="card-image" style="background-image: url('{% static 'images/washroom.jpg' %}');"></div>
+                <div class="card-content">
+                    <h3 class="card-title">Washrooms</h3>
+                    <p class="card-description">Upload various pictures of washrooms</p>
+                    {% if existing_images.washroom > 0 %}
+                        <span class="upload-count uploaded">({{ existing_images.washroom }} uploaded)</span>
+                    {% else %}
+                        <span class="upload-count none">(0 uploaded)</span>
+                    {% endif %}
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

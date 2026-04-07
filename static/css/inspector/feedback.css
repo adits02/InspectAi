@@ -1,0 +1,122 @@
+body {
+    background-color: #BED7DC;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    position: relative;
+}
+
+.container-wrapper {
+    display: flex;
+    justify-content: center;
+    padding-top: 120px;
+}
+
+.container {
+    display: flex;
+    gap: 20px; /* Space between the cards */
+    max-width: 1000px; /* Limit container width */
+    width: 100%;
+}
+
+.card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    min-width: 300px; /* Prevent cards from shrinking too much */
+    box-sizing: border-box;
+}
+
+.card-1, .card-2 {
+    max-width: 48%; /* Ensure both cards fit side by side */
+}
+
+/* Form Styling */
+form {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Align cards side by side */
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 24px;
+    color: #333;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #666;
+    font-size: 14px;
+}
+
+textarea {
+    height: 190px;
+    resize: none;
+    width: 100%; /* Ensure it stretches inside the card */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.upload-area {
+    border: 2px dashed #ccc;
+    border-radius: 5px;
+    padding: 30px;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.upload-icon {
+    font-size: 48px;
+    color: #999;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #00a8e8;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0091c9;
+}
+
+.button-group {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.cancel-button {
+    background-color: #f1f1f1;
+    color: #333;
+}
+
+.cancel-button:hover {
+    background-color: #e1e1e1;
+}
+
+/* Media Query for Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack cards vertically on smaller screens */
+    }
+    .card-1, .card-2 {
+        max-width: 100%; /* Full width for smaller devices */
+    }
+    form {
+        flex-direction: column; /* Ensure the form aligns vertically */
+    }
+}

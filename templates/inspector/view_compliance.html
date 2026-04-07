@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<head>
+    <title>Compliance Report</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/inspector/report2.css' %}">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navdiv">
+            <div class="logo">
+                <a href="{% url 'homepage' %}">
+                    <img alt="inspX.ai Logo" height="50" src="{% static 'images/logo.png' %}"/>
+                </a>
+            </div>
+            <ul>
+                <li><a href="{% url 'homepage' %}">Home</a></li>
+                <li><a href="{% url 'options' %}">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="dashboard main-content">
+        <div class="container">
+            <h1 class="text-2xl md:text-3xl font-bold text-blue-900 text-center mb-8">Compliance Report</h1>
+            
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <h2 class="text-xl font-semibold mb-4">Institution Compliance with AICTE Norms</h2>
+                
+                {% if error %}
+                    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+                        <i class="fas fa-exclamation-circle mr-2"></i>{{ error }}
+                    </div>
+                    <div class="bg-yellow-50 border border-yellow-200 text-yellow-800 px-4 py-3 rounded mt-4">
+                        <p><strong>Next Step:</strong> Please ensure that the mandatory disclosure has been uploaded first. Once uploaded, the compliance report will be automatically generated.</p>
+                    </div>
+                {% else %}
+                    <div class="mb-4 bg-blue-50 p-4 rounded">
+                        <p><strong>College:</strong> {{ college }}</p>
+                        <p><strong>Report ID:</strong> {{ report_id }}</p>
+                        {% if intake %}
+                            <p><strong>Intake:</strong> {{ intake }}</p>
+                        {% endif %}
+                    </div>
+                    
+                    <p class="mb-6 text-gray-700">This report details the compliance status of the institution with AICTE standards and regulations based on the mandatory disclosure data.</p>
+                    
+                    {% if report_available %}
+                        <div class="mb-6 bg-green-50 border-l-4 border-green-500 p-4 rounded">
+                            <h3 class="font-semibold text-green-800 mb-3">
+                                <i class="fas fa-check-circle mr-2"></i>Report Available
+                            </h3>
+                            <p class="text-gray-700 mb-4">The compliance report has been successfully generated. Click below to download:</p>
+                            <a href="{% url 'download_compliance_report' report_id %}" class="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition-colors duration-200 shadow-md">
+                                <i class="fas fa-download"></i>
+                                Download Full Report (PDF)
+                            </a>
+                        </div>
+                        
+                        <!-- PDF Viewer if available -->
+                        {% if compliance.report_file %}
+                            <div class="mt-6 bg-gray-50 p-4 rounded border border-gray-200">
+                                <h3 class="font-semibold text-gray-800 mb-3">
+                                    <i class="fas fa-file-pdf mr-2 text-red-600"></i>Report Preview
+                                </h3>
+                                <p class="text-sm text-gray-600 mb-3">PDF viewer: Please download the report to view detailed compliance data, tables, and AI-generated insights.</p>
+                                <a href="{% url 'download_compliance_report' report_id %}" class="text-blue-600 hover:underline flex items-center gap-1">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    Open in new window
+                                </a>
+                            </div>
+                        {% endif %}
+                    {% else %}
+                        <div class="bg-yellow-50 border border-yellow-200 text-yellow-800 px-4 py-3 rounded">
+                            <p><i class="fas fa-info-circle mr-2"></i>Report file is being generated. Please refresh the page in a moment.</p>
+                        </div>
+                    {% endif %}
+                    
+                    <!-- Compliance Summary Section -->
+                    <div class="mt-8">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Compliance Summary</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-green-50 border-l-4 border-green-500 p-4 rounded">
+                                <h4 class="font-semibold text-green-800 mb-2">
+                                    <i class="fas fa-check mr-2"></i>Report Components
+                                </h4>
+                                <ul class="list-disc list-inside mt-2 text-sm text-gray-700">
+                                    <li>Faculty compliance analysis</li>
+                                    <li>Infrastructure assessment</li>
+                                    <li>Classroom validation</li>
+                                    <li>AI-generated insights</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+                                <h4 class="font-semibold text-blue-800 mb-2">
+                                    <i class="fas fa-info-circle mr-2"></i>For More Information
+                                </h4>
+                                <p class="text-sm text-gray-700 mb-2">The detailed report includes:</p>
+                                <ul class="list-disc list-inside text-sm text-gray-700">
+                                    <li>AICTE compliance status</li>
+                                    <li>Areas of strength</li>
+                                    <li>Recommendations</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </main>
+
+    <script>
+        window.addEventListener('load', function () {
+            const mainContent = document.querySelector('.dashboard');
+            mainContent.classList.add('fade-in');
+        });
+    </script>
+</body>
+
+{% endblock %}

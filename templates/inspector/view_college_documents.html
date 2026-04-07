@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container" style="margin: 40px auto; max-width: 1100px;">
+    <h1 style="text-align:center; margin-bottom:20px;">College Documents Overview</h1>
+
+    {% if error %}
+    <div style="background:#f8d7da; color:#721c24; padding:15px; border-radius:8px; margin-bottom:20px;">
+        {{ error }}
+    </div>
+    {% endif %}
+
+    <div style="background:#fff; border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.05); padding:20px; margin-bottom:30px;">
+        <h2>Mandatory Disclosure</h2>
+        {% if mandatory_entries and mandatory_entries|length > 0 %}
+            <table style="width:100%; border-collapse:collapse; margin-top:10px;">
+                <thead>
+                    <tr>
+                        <th style="border-bottom:1px solid #ddd; padding:8px; text-align:left;">#</th>
+                        <th style="border-bottom:1px solid #ddd; padding:8px; text-align:left;">File Name</th>
+                        <th style="border-bottom:1px solid #ddd; padding:8px; text-align:left;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entry in mandatory_entries %}
+                    <tr>
+                        <td style="padding:8px;">{{ forloop.counter }}</td>
+                        <td style="padding:8px;">{{ entry.name }}</td>
+                        <td style="padding:8px;"><a href="{% url 'view_mandatory' %}" class="btn" style="background:#2c7be5;color:#fff;padding:6px 12px; border-radius:4px;">Download</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No mandatory disclosure uploaded yet.</p>
+        {% endif %}
+    </div>
+
+    <div style="background:#fff; border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.05); padding:20px; margin-bottom:30px;">
+        <h2>Supporting Documents (Optional)</h2>
+        {% if optional_certs and optional_certs|length > 0 %}
+        <table style="width:100%; border-collapse:collapse; margin-top:10px;">
+            <thead>
+                <tr>
+                    <th style="border-bottom:1px solid #ddd; padding:8px; text-align:left;">#</th>
+                    <th style="border-bottom:1px solid #ddd; padding:8px; text-align:left;">Document Name</th>
+                    <th style="border-bottom:1px solid #ddd; padding:8px; text-align:left;">Type</th>
+                    <th style="border-bottom:1px solid #ddd; padding:8px; text-align:left;">Status</th>
+                    <th style="border-bottom:1px solid #ddd; padding:8px; text-align:left;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for cert in optional_certs %}
+                <tr>
+                    <td style="padding:8px;">{{ forloop.counter }}</td>
+                    <td style="padding:8px;">{{ cert.name }}</td>
+                    <td style="padding:8px;">{{ cert.field_name }}</td>
+                    <td style="padding:8px;">{{ cert.verified|default:'Pending' }}</td>
+                    <td style="padding:8px;"><a href="{% url 'download_supporting_document' cert.id %}" class="btn" style="background:#28a745;color:#fff;padding:6px 12px; border-radius:4px;">Download</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+            <p>No supporting documents uploaded yet.</p>
+        {% endif %}
+    </div>
+
+    <div style="text-align:center; margin-top:20px;">
+        <a href="{% url 'view_reports' %}" style="text-decoration:none; background:#2c3e50; color:#fff; padding:10px 20px; border-radius:8px;">Back to Dashboard</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,297 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+  View College Data
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   .navbar {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    padding: 10px 20px;
+   }
+   .navdiv {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   }
+   .navdiv .logo img {
+    height: 50px;
+    padding: 5px;
+   }
+   .navdiv ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+   }
+   .navdiv ul li {
+    margin-left: 20px;
+   }
+   .navdiv ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+   }
+   .navdiv .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+   }
+   .navdiv .hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+   }
+   @media (max-width: 768px) {
+    .navdiv ul {
+     display: none;
+    }
+    .navdiv .hamburger {
+     display: flex;
+    }
+   }
+   .footer {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+   }
+
+   .action-button {
+    text-align: center;
+}
+
+.approve-button {
+    background-color: 0288d1;
+    color: #ffffff;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.approve-button:hover {
+    background-color: #0288d1;
+    transform: scale(1.05);
+}
+
+
+
+  
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.profile-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.profile-button {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.profile-image {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid #007bff;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.profile-name {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.dropdown-arrow {
+  fill: white;
+  transition: transform 0.2s;
+}
+
+.profile-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #2c3e50;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  min-width: 100px;
+  z-index: 1000;
+  margin-top: 10px;
+}
+
+.profile-dropdown a {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.profile-dropdown a:hover {
+  background-color: #34495e;
+}
+
+.profile-dropdown-icon {
+  margin-right: 10px;
+}
+
+.profile-dropdown.show {
+  display: block;
+}
+
+.profile-container:hover .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+
+  </style>
+ </head>
+ <body class="bg-[#BED7DC]">
+   <nav class="navbar">
+      <div class="navdiv">
+        <div class="logo">
+         <a href="{% url 'homepage' %}">
+            <img alt="inspX.ai Logo" height="50" src="{% static 'images/logo.png' %}" style="padding: 5px;" />
+          </a>
+        </div>
+        <ul>
+         <li><a href="{% url 'homepage' %}">Home</a></li>
+          </li>
+          <li class="profile-container">
+            <button class="profile-button" onclick="toggleDropdown()">
+             
+              <span class="profile-name">{{ request.session.user_id }}</span>
+              <svg class="dropdown-arrow" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+            </button>
+            <div id="profileDropdown" class="profile-dropdown">
+              <a href="{% url 'inspector_logout' %}">
+                <svg class="profile-dropdown-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                  <polyline points="16 17 21 12 16 7"></polyline>
+                  <line x1="21" y1="12" x2="9" y2="12"></line>
+                </svg>
+                Logout
+              </a>
+            </div>
+          </li>
+          
+          
+        </ul>
+        
+    </nav>
+
+    
+ <script>
+   function toggleDropdown() {
+     const dropdown = document.getElementById('profileDropdown');
+     dropdown.classList.toggle('show');
+   }
+ 
+   document.addEventListener('click', function (event) {
+     const profileContainer = document.querySelector('.profile-container');
+     const dropdown = document.getElementById('profileDropdown');
+     if (!profileContainer.contains(event.target)) {
+       dropdown.classList.remove('show');
+     }
+   });
+ </script>
+    
+  <main class="p-4 md:p-8">
+   <h1 class="text-2xl md:text-3xl font-bold text-center text-blue-900 mb-4 md:mb-6" style="margin-bottom:50px;margin-top:30px ;">
+    College Data Dashboard
+   </h1>
+  
+   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-9 md:gap-10" id="uploads" style="margin-bottom:50px ;">
+    <a class="bg-white p-4 md:p-6 rounded-lg shadow-md text-center block hover:shadow-lg transition-shadow duration-300" href="{% url 'view_college_documents' %}">
+     <i class="fas fa-folder-open text-blue-500 text-3xl md:text-4xl mb-2 md:mb-4"></i>
+     <h2 class="text-lg md:text-xl font-bold mb-1 md:mb-2">
+        View All College Documents
+     </h2>
+     <p class="text-gray-600 text-sm md:text-base">
+        Mandatory disclosure + Faculty/Admission/Approval/Fire docs
+     </p>
+    </a>
+    <a class="bg-white p-4 md:p-6 rounded-lg shadow-md text-center block hover:shadow-lg transition-shadow duration-300" href="{% url 'view_certificates' %}">
+     <i class="fas fa-certificate text-fuchsia-900 text-3xl md:text-4xl mb-2 md:mb-4">
+     </i>
+     <h2 class="text-lg md:text-xl font-bold mb-1 md:mb-2">
+        View Certificates
+     </h2>
+     <p class="text-gray-600 text-sm md:text-base">
+        View certificates here
+     </p>
+    </a>
+    <a class="bg-white p-4 md:p-6 rounded-lg shadow-md text-center block hover:shadow-lg transition-shadow duration-300" href="{% url 'view_image' %}">
+     <i class="fas fa-image text-green-500 text-3xl md:text-4xl mb-2 md:mb-4">
+     </i>
+     <h2 class="text-lg md:text-xl font-bold mb-1 md:mb-2">
+        View Images
+     </h2>
+     <p class="text-gray-600 text-sm md:text-base">
+        View images of college infrastructure here
+     </p>
+    </a>
+    <a class="bg-white p-4 md:p-6 rounded-lg shadow-md text-center block hover:shadow-lg transition-shadow duration-300" href="{% url 'annexure' %}">
+     <i class="fas fa-file text-blue-500 text-3xl md:text-4xl mb-2 md:mb-4">
+     </i>
+     <h2 class="text-lg md:text-xl font-bold mb-1 md:mb-2">
+      View Annexure &amp; Affadavit
+     </h2>
+     <p class="text-gray-600 text-sm md:text-base">
+      View  AICTE annexure, affidavits, certificates and formats here
+     </p>
+    </a>
+    <a class="bg-sky-700 p-4 md:p-6 rounded-lg shadow-md text-center block hover:shadow-lg transition-shadow duration-300" href="{% url 'report2' %}">
+     <i class="fas fa-file-alt text-yellow-200 text-3xl md:text-4xl mb-2 md:mb-4">
+     </i>
+     <h2 class="text-white text-lg md:text-xl font-bold mb-1 md:mb-2">
+      View Reports
+     </h2>
+     <p class="text-white text-sm md:text-base">
+      View Reports Generated by InspectAi
+     </p>
+    </a>
+    <a class="bg-green-700 p-4 md:p-6 rounded-lg shadow-md text-center block hover:shadow-lg transition-shadow duration-300" href="{% url 'view_inspection_requests_inspector' %}">
+     <i class="fas fa-file-signature text-white text-3xl md:text-4xl mb-2 md:mb-4"></i>
+     <h2 class="text-white text-lg md:text-xl font-bold mb-1 md:mb-2">
+      Submit Inspection Report
+     </h2>
+     <p class="text-white text-sm md:text-base">
+      Fill and submit inspection report for your assigned inspections
+     </p>
+    </a>
+  </main>
+  
+    
+ 
+ </body>
+
+ {% endblock %}

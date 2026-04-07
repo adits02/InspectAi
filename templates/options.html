@@ -1,0 +1,143 @@
+﻿{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<style>
+  .options-hero {
+    text-align: center;
+    padding: 3rem 1.5rem;
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.05), rgba(245, 158, 11, 0.05));
+    border-radius: 28px;
+    margin-bottom: 3rem;
+  }
+
+  .options-hero h1 {
+    color: var(--aicte-primary);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+
+  .options-hero p {
+    color: var(--aicte-muted);
+    font-size: 1.1rem;
+  }
+
+  .options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .option-card {
+    background: var(--aicte-surface);
+    border: 1px solid var(--aicte-border);
+    border-radius: 28px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: var(--aicte-shadow);
+  }
+
+  .option-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--aicte-accent);
+    box-shadow: 0 30px 60px rgba(245, 158, 11, 0.12);
+  }
+
+  .option-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.1), rgba(245, 158, 11, 0.1));
+    border-radius: 20px;
+    transition: transform 0.3s ease;
+  }
+
+  .option-card:hover .option-icon {
+    transform: scale(1.1);
+  }
+
+  .option-icon svg {
+    width: 50px;
+    height: 50px;
+  }
+
+  .option-card h2 {
+    color: var(--aicte-primary);
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+  }
+
+  .option-card p {
+    color: var(--aicte-muted);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .option-card .btn-primary {
+    width: 100%;
+    padding: 12px 24px;
+  }
+
+  @media (max-width: 768px) {
+    .options-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .options-hero h1 {
+      font-size: 2rem;
+    }
+  }
+</style>
+
+<div class="aicte-page">
+  <div class="options-hero">
+    <h1>Select Your Role</h1>
+    <p>Choose your role to access the inspection system</p>
+  </div>
+
+  <div class="options-grid">
+    <div class="option-card">
+      <div class="option-icon">
+        <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 12h-2.18c-.17.7-.44 1.35-.81 1.93l1.54 1.54-2.1 2.1-1.54-1.54c-.58.36-1.23.63-1.91.79V19H8v-2.18c-.68-.16-1.33-.43-1.91-.79l-1.54 1.54-2.12-2.12 1.54-1.54c-.36-.58-.63-1.23-.79-1.91H1V9.03h2.17c.16-.7.44-1.35.8-1.94L2.43 5.55l2.1-2.1 1.54 1.54c.58-.37 1.24-.64 1.93-.81V2h3v2.18c.68.16 1.33.43 1.91.79l1.54-1.54 2.12 2.12-1.54 1.54c.36.59.64 1.24.8 1.94H18V12zm-8.5 1.5c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3z" style="color: var(--aicte-primary);"/>
+        </svg>
+      </div>
+      <h2>Admin</h2>
+      <p>Institute, Inspector and Data Management</p>
+      <a href="{% url 'aicte_login' %}" class="btn btn-primary">Admin Login</a>
+    </div>
+
+    <div class="option-card">
+      <div class="option-icon">
+        <svg fill="currentColor" height="50px" width="50px" version="1.1" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+          <path d="M458.159,404.216c-18.93-33.65-49.934-71.764-100.409-93.431c-28.868,20.196-63.938,32.087-101.745,32.087c-37.828,0-72.898-11.89-101.767-32.087c-50.474,21.667-81.479,59.782-100.398,93.431C28.731,448.848,48.417,512,91.842,512c43.426,0,164.164,0,164.164,0s120.726,0,164.153,0C463.583,512,483.269,448.848,458.159,404.216z" style="color: var(--aicte-accent);"/>
+          <path d="M256.005,300.641c74.144,0,134.231-60.108,134.231-134.242v-32.158C390.236,60.108,330.149,0,256.005,0c-74.155,0-134.252,60.108-134.252,134.242V166.4C121.753,240.533,181.851,300.641,256.005,300.641z" style="color: var(--aicte-accent);"/>
+        </svg>
+      </div>
+      <h2>Inspector</h2>
+      <p>Conduct inspections and generate reports</p>
+      <a href="{% url 'inspector_login' %}" class="btn btn-primary">Inspector Login</a>
+    </div>
+
+    <div class="option-card">
+      <div class="option-icon">
+        <svg fill="currentColor" width="50px" height="50px" viewBox="0 -64 640 640" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 224v272c0 8.84 7.16 16 16 16h80V192H32c-17.67 0-32 14.33-32 32zm360-48h-24v-40c0-4.42-3.58-8-8-8h-16c-4.42 0-8 3.58-8 8v64c0 4.42 3.58 8 8 8h48c4.42 0 8-3.58 8-8v-16c0-4.42-3.58-8-8-8zm137.75-63.96l-160-106.67a32.02 32.02 0 0 0-35.5 0l-160 106.67A32.002 32.002 0 0 0 128 138.66V512h128V368c0-8.84 7.16-16 16-16h96c8.84 0 16 7.16 16 16v144h128V138.67c0-10.7-5.35-20.7-14.25-26.63zM320 256c-44.18 0-80-35.82-80-80s35.82-80 80-80 80 35.82 80 80-35.82 80-80 80zm288-64h-64v320h80c8.84 0 16-7.16 16-16V224c0-17.67-14.33-32-32-32z" style="color: var(--aicte-primary);"/>
+        </svg>
+      </div>
+      <h2>College</h2>
+      <p>Input data and analyze inspection results</p>
+      <a href="{% url 'college_login' %}" class="btn btn-primary">College Login</a>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
