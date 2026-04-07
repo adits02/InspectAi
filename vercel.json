@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "fastapi_app.py",
+      "use": "@vercel/python",
+      "config": {
+        "requirementsFile": "requirements-prod.txt",
+        "maxLambdaSize": "1000mb"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "fastapi_app.py"
+    }
+  ],
+  "env": {
+    "PYTHONUNBUFFERED": "1"
+  }
+}
